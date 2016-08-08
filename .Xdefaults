@@ -1,0 +1,91 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              1
+Xft.rgba:                   rgb
+Xft.hinting:                1
+Xft.hintstyle:              hintslight
+Xft.lcdfilter:		        lcddefault
+
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.transparent:          false
+URxvt.fading:               0
+URxvt.urgentOnBell:         false
+URxvt.visualBell:           false
+URxvt.loginShell:           true
+URxvt.saveLines:            50
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+
+! Fonts
+URxvt.allow_bold:           true
+
+/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
+URxvt*font: xft:Hack:pixelsize=13
+URxvt*boldFont: xft:Hack:pixelsize=13
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+*background: #282c34
+*foreground: #abb2bf
+
+urxvt*background: rgba:2727/2727/2727/f1f1
+
+!!*fading: 40
+RfadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+
+!! black dark/light
+*color0: #282c34
+*color8: #abb2bf
+
+!! red dark/light
+*color9: #e06c75
+*color1: #be5046
+
+!! green dark/light
+*color2: #98c379
+*color10: #98c379
+
+!! yellow dark/light
+*color3: #d19a66
+*color11: #e5c07b
+
+!! blue dark/light
+*color4: #61afef
+*color12: #61afef
+
+!! magenta dark/light
+*color5: #c678dd
+*color13: #c678dd
+
+!! cyan dark/light
+*color6: #56b6c2
+*color14: #56b6c2
+
+!! white dark/light
+*color7: #636d83
+*color15: #5c6370
