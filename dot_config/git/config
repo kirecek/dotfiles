@@ -1,0 +1,12 @@
+[alias]
+	st = status
+	br = branch
+	ch = checkout
+	lg = log
+	co = commit
+	df = diff
+	lol = log --graph --oneline --decorate
+[push]
+	default = current
+[commit]
+	gpgsign = true

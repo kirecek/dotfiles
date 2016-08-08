@@ -1,0 +1,132 @@
+# ------------------------------- general settings
+
+# set XDG location
+export XDG_HOME_CONFIG=$HOME/.config
+
+# change default editor
+if [ -x "$(command -v nvim)" ]; then
+    export EDITOR=nvim
+elif [ -x "$(command -v vim)" ]; then
+    export EDITOR=vim
+else
+    export EDITOR=vi
+fi
+
+# ------------------------------- oh-my-zsh settings
+
+# path to oh-my-zsh installation
+export ZSH="${HOME}/.oh-my-zsh"
+
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+
+  # change location for custom plugins and themes
+  export ZSH_CUSTOM="$XDG_HOME_CONFIG/oh-my-zsh"
+
+  # set theme for PS1
+  ZSH_THEME="robbyrussell"
+  
+  # enabled plugins
+  plugins=(
+    git
+    git-open
+    vi-mode
+    history-substring-search  
+    jsontools  
+    sudo  
+    systemd  
+    web-search  
+    kubectl
+    fzf
+    autojump
+    wakatime
+    zsh-syntax-highlighting
+  )
+
+  source $ZSH/oh-my-zsh.sh
+fi
+
+# ------------------------------- golang settings
+
+if [ -x "$(command -v go)" ]; then
+	export GOPATH=$(go env GOPATH)
+fi
+
+# ------------------------------- python settings
+
+if [ -x "$(command -v python)" ]; then
+	[ -f /usr/bin/virtualenvwrapper.sh ] \
+        && source /usr/bin/virtualenvwrapper.sh
+
+	export WORKON_HOME=$HOME/.virtualenvs
+fi
+
+# ------------------------------ third-party scripts
+
+# 'fuck' command
+[ -x "$(command -v thefuck)" ] \
+    && eval $(thefuck --alias)
+
+# fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ------------------------------- custom aliases and functions
+
+alias ]=xdg-open
+
+# start calculator with math support
+alias bc='bc -l'
+
+# create parent dirs on demand
+alias mkdir='mkdir -pv'
+
+# shortcut to download mp3 from youtube
+alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+
+alias x="xclip -sel clip"
+
+# application shortcuts
+alias k=kubectl
+alias tf=terraform
+alias dkr=docker
+
+# ------------------------------- modify history behavior
+
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+
+unsetopt HIST_VERIFY
+
+# ------------------------------- setup google cloud sdk
+
+# location where gcloud sdk is installed
+GCLOUD_SDK_ROOT="${HOME}/google-cloud-sdk"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${GCLOUD_SDK_ROOT}/path.zsh.inc" ]; then
+    source "${GCLOUD_SDK_ROOT}/path.zsh.inc"
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${GCLOUD_SDK_ROOT}/completion.zsh.inc" ]; then
+    source "${GCLOUD_SDK_ROOT}/completion.zsh.inc"
+fi
+
+# -------------------------------- update path
+
+export PATH="$GOPATH/bin:$PATH"
+
+# -------------------------------- invoke gpg-agent
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# -------------------------------- use gpg-agent instead of ssh-agent
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
