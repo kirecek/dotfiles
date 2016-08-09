@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="kirecek"
+ZSH_THEME="robbyrussell"
 
 DISABLE_AUTO_TITLE="false"
 
@@ -29,9 +29,9 @@ else
 fi
 
 
-[ -f ~/.zsh/zsh_aliases ] && source ~/.zsh_aliases
+[ -f ~/.config/zsh/zsh_aliases ] && source ~/.config/zsh/zsh_aliases
 
-[ -f ~/.zsh/zsh_tweaks ] && source ~/.zsh_tweaks
+[ -f ~/.config/zsh/zsh_tweaks ] && source ~/.config/zsh/zsh_tweaks
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
