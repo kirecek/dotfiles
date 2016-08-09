@@ -16,12 +16,13 @@ floating_modifier $mod
 set $black   #000000
 set $white   #ffffff
 
-set $bg_01   #000000
+set $bg_01   #1E272C
 set $bg_02   #413F40
-set $bg_03   #88858C
-set $bg_04   #D7D7D7
+set $bg_03   #5E707A
+set $bg_04   #5E707A
+set $bg_05   #273138
 
-set $fg_01   #f1f1f1
+set $fg_01   #5F7079
 set $fg_02   #D7D7D7
 
 # set workspace names as variables
@@ -42,6 +43,9 @@ set $workspaceA " 10 "
 # Bindings
 #
 #######################################
+
+# cycle between recent workspaces
+bindsym $mod+Tab workspace back_and_forth
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -139,7 +143,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # lock screen
-bindsym $mod+i exec i3lock -c 000000
+bindsym $mod+i exec i3lock -c 1E272C
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -172,13 +176,13 @@ mode "resize" {
 # smart_gaps on
 
 # set inner gap <px>
-gaps inner 10
+# gaps inner 10
 
 # set outer gap <px>
-gaps outer 10
+# gaps outer 10
 
 # window border width <px>
-new_window pixel 5
+new_window pixel 2
 
 # border eges none|vertical|horizontal|both
 hide_edge_borders none
@@ -194,10 +198,10 @@ font pango: "DejaVu Sans Mono Book" 10
 
 # set WM's colors
 # <class>               <border>     <background>       <text>       <indicator>    <child_border>
-client.focused          $bg_03       $bg_03             $fg_01       $fg_01
-client.focused_inactive $black       $black             $fg_01       $fg_01
-client.unfocused        $black       $black             $fg_01       $fg_01
-client.urgent           $black       $black             $fg_01       $fg_01
+client.focused          $bg_03       $bg_03             $fg_02       $bg_03
+client.focused_inactive $bg_05       $bg_05             $fg_01       $bg_05
+client.unfocused        $bg_05       $bg_05             $fg_01       $bg_05
+client.urgent           $bg_05       $bg_05             $fg_01       $bg_05
 
 client.background       $base001
 
@@ -208,7 +212,7 @@ bar {
   separator_symbol --
 
   font pango: Hack 10
-  height 25
+  # height 25
   position top
 
   colors {
