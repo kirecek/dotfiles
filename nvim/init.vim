@@ -183,7 +183,7 @@ let g:multi_cursor_start_key='<F6>'
 " ========================================================= Airline
 
 " set theme for statusbar
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'deep_space'
 
 " automatically display all buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -216,7 +216,7 @@ set background=dark
 
 " set *vi* theme
 syntax on
-colorscheme onedark
+colorscheme deep-space
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 1
