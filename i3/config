@@ -52,7 +52,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # application launcher
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec dmenu_run \
+    -b \
+    -fn "Hack 10" \
+    -nb "$dark" \
+    -nf "$light" \
+    -sb "$grey_m"
 
 # change focused window
 bindsym $mod+h focus left
@@ -243,7 +248,7 @@ bar {
     statusline $light
 
     # <colorclass>        <border>       <background>       <text>
-    focused_workspace     $grey_d       $grey_l             $grey_d
+    focused_workspace     $grey_m       $light              $dark
     active_workspace      $dark         $dark               $light
     inactive_workspace    $dark         $dark               $light
     urgent_workspace      $dark         $dark               $light
