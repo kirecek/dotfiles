@@ -19,9 +19,6 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
-" colorscheme: solarized with true color support
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
-
 " colorscheme: onedark
 Plug 'git@github.com:joshdick/onedark.vim.git'
 
@@ -79,6 +76,9 @@ Plug 'terryma/vim-multiple-cursors'
 
 " yml syntax
 Plug 'stephpy/vim-yaml'
+
+" nginx syntax
+Plug 'evanmiller/nginx-vim-syntax'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -143,19 +143,6 @@ let g:fzf_colors =
 nnoremap <C-t> :FZF<Enter>
 
 " ========================================================= Nerdtree
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" ========================================================= Nerdtree
 
 " activate nerdtree
 autocmd StdinReadPre * let s:std_in=1
@@ -193,7 +180,7 @@ let g:airline_powerline_fonts = 1
 
 " ========================================================= Colors
 
-" 256 color mode
+" set color mode
 set t_Co=256
 
 " settings related to onedark theme
@@ -211,11 +198,12 @@ endif
 " enable syntax processing
 syntax enable
 
+" let g:solarized_termtrans = 1
+
+syntax on
 " set theme variant {dark, light}
 set background=dark
-
 " set *vi* theme
-syntax on
 colorscheme deep-space
 
 " format rust code every time buffer is written
@@ -239,10 +227,10 @@ set expandtab
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors = 1
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#232A36   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#323C4D   ctermbg=4
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#232A36   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#323C4D   ctermbg=4
 
 " ========================================================= UI Config
 

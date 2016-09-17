@@ -19,7 +19,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export XDG_HOME_CONFIG=$HOME/.config
 
-export TERMINAL=roxterm
+export TERMINAL=urxvt
 
 
 if [[ -n $SSH_CONNECTION ]]; then

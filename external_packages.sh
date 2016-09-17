@@ -9,3 +9,6 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 
 # powerline
 git clone https://github.com/powerline/powerline.git ~/.powerline
+
+# spaceship zsh theme
+curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh

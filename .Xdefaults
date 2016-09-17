@@ -7,7 +7,7 @@ Xft.antialias:              1
 Xft.rgba:                   rgb
 Xft.hinting:                1
 Xft.hintstyle:              hintslight
-Xft.lcdfilter:		        lcddefault
+Xft.lcdfilter:              lcddefault
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
@@ -23,7 +23,7 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
 
-/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
+! URxvt.font:
 URxvt*font: xft:Hack:pixelsize=13
 URxvt*boldFont: xft:Hack:pixelsize=13
 
