@@ -214,6 +214,18 @@ new_window pixel 4
 # border eges none|vertical|horizontal|both
 hide_edge_borders none
 
+#######################################
+#
+# Scratchpad
+#
+#######################################
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 
 #######################################
 #
