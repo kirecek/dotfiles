@@ -80,6 +80,9 @@ Plug 'stephpy/vim-yaml'
 " nginx syntax
 Plug 'evanmiller/nginx-vim-syntax'
 
+" one colorscheme
+Plug 'rakr/vim-one'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -91,7 +94,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " ========================================================= Rust
 
 " enable automatic running of :RustFmt
-let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 0
 
 " ========================================================= Sneak
 
@@ -170,7 +173,7 @@ let g:multi_cursor_start_key='<F6>'
 " ========================================================= Airline
 
 " set theme for statusbar
-let g:airline_theme = 'deep_space'
+let g:airline_theme = 'one'
 
 " automatically display all buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -195,6 +198,10 @@ if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 " enable syntax processing
 syntax enable
 
@@ -204,7 +211,7 @@ syntax on
 " set theme variant {dark, light}
 set background=dark
 " set *vi* theme
-colorscheme deep-space
+colorscheme one
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 1
@@ -245,6 +252,9 @@ set showcmd
 
 " highlight currentline
 set cursorline
+
+" highlight cursor column
+set cursorcolumn
 
 " load filetype-specific indent files
 filetype indent on
