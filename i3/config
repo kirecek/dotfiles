@@ -46,7 +46,7 @@ set $monitor2 VGA1
 #######################################
 
 # cycle between recent workspaces
-bindsym $mod+Tab workspace back_and_forth
+# bindsym $mod+Tab workspace back_and_forth
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -178,7 +178,6 @@ mode "resize" {
 #
 #######################################
 
-
 # output settings
 workspace $workspace1 output $monitor2
 workspace $workspace2 output $monitor1
@@ -195,6 +194,8 @@ workspace $workspaceA output $monitor1
 assign [window_role="browser"] $workspace1
 assign [class="Thunderbird"] $workspaceA
 
+# automatic back-and-forth
+workspace_auto_back_and_forth yes
 
 #######################################
 #
