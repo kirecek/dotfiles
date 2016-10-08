@@ -19,12 +19,6 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
-" colorscheme: onedark
-Plug 'git@github.com:joshdick/onedark.vim.git'
-
-" airline_theme: onedark
-Plug 'git@github.com:joshdick/airline-onedark.vim.git'
-
 " syntax highlight for JSX
 Plug 'git@github.com:mxw/vim-jsx.git'
 
@@ -34,11 +28,8 @@ Plug 'git@github.com:scrooloose/nerdtree.git'
 " emmet -> impove html and css workflow
 Plug 'git@github.com:mattn/emmet-vim.git'
 
-" improved javascript highlinghting
-Plug 'pangloss/vim-javascript'
-
 " autoclose brackets
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 " visualy display indent levels
 Plug 'nathanaelkane/vim-indent-guides'
@@ -50,26 +41,14 @@ Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" autocomplete
-" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.plugged/YouCompleteMe', 'do': './install.py --all' }
-
 " autocompletion for python
 Plug 'davidhalter/jedi-vim'
 
 " colorfull parentheses
 Plug 'luochen1990/rainbow'
 
-" pep-8 style checker
-Plug 'nvie/vim-flake8'
-
-" add rust syntax support
-Plug 'rust-lang/rust.vim'
-
 " measure your coding time
 Plug 'wakatime/vim-wakatime'
-
-" colorscheme: deep-space
-Plug 'tyrannicaltoucan/vim-deep-space'
 
 " multicursor plugin
 Plug 'terryma/vim-multiple-cursors'
@@ -82,6 +61,9 @@ Plug 'evanmiller/nginx-vim-syntax'
 
 " one colorscheme
 Plug 'rakr/vim-one'
+
+" neomake
+Plug 'neomake/neomake'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -101,10 +83,14 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " enable vim-sneak
 let g:sneak#streak = 1
 
+" ========================================================= Neomake
+
+autocmd! BufWritePost * Neomake
+
 " ========================================================= Flake8
 
 " autorun Flake8 on saving .py file
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 " ========================================================= Fzf
 
@@ -163,12 +149,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 let g:multi_cursor_use_default_mapping=0
 
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-let g:multi_cursor_start_key='<F6>'
+" let g:multi_cursor_next_key='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
+"
+" let g:multi_cursor_start_key='<F6>'
 
 " ========================================================= Airline
 
