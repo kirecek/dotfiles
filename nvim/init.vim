@@ -71,7 +71,7 @@ call plug#end()
 " ========================================================= Autocompletion
 
 " autoclose preview window
-let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_completion=1
 
 " ========================================================= Rust
 
@@ -85,7 +85,25 @@ let g:sneak#streak = 1
 
 " ========================================================= Neomake
 
-autocmd! BufWritePost * Neomake
+augroup NeoToggle
+    autocmd!
+    autocmd! BufWritePost * Neomake
+augroup END
+
+function! NeoToggle()
+    if exists('#NeoToggle#BufWritePost')
+        augroup NeoToggle
+            autocmd!
+        augroup END
+    else
+        augroup NeoToggle
+            autocmd!
+            autocmd! BufWritePost * Neomake
+        augroup END
+    endif
+endfunction
+
+nnoremap <F4> :call NeoToggle()<CR>
 
 " ========================================================= Flake8
 
