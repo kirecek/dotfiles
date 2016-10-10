@@ -85,25 +85,22 @@ let g:sneak#streak = 1
 
 " ========================================================= Neomake
 
-augroup NeoToggle
-    autocmd!
-    autocmd! BufWritePost * Neomake
-augroup END
-
-function! NeoToggle()
-    if exists('#NeoToggle#BufWritePost')
-        augroup NeoToggle
+function! NeomakeToggle()
+    if exists('#NeomakeToggle#BufWritePost')
+        augroup NeomakeToggle
             autocmd!
         augroup END
     else
-        augroup NeoToggle
+        augroup NeomakeToggle
             autocmd!
             autocmd! BufWritePost * Neomake
         augroup END
     endif
 endfunction
 
-nnoremap <F4> :call NeoToggle()<CR>
+call NeomakeToggle()
+
+nnoremap <F4> :call NeomakeToggle()<CR>
 
 " ========================================================= Flake8
 
