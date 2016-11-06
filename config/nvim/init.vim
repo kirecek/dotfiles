@@ -56,6 +56,9 @@ Plug 'terryma/vim-multiple-cursors'
 " yml syntax
 Plug 'stephpy/vim-yaml'
 
+" rustlang syntax
+Plug 'rust-lang/rust.vim'
+
 " nginx syntax
 Plug 'evanmiller/nginx-vim-syntax'
 
@@ -71,12 +74,12 @@ call plug#end()
 " ========================================================= Autocompletion
 
 " autoclose preview window
-let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_completion=1
 
 " ========================================================= Rust
 
 " enable automatic running of :RustFmt
-" let g:rustfmt_autosave = 0
+let g:rustfmt_autosave = 1
 
 " ========================================================= Sneak
 
@@ -200,7 +203,7 @@ set background=dark
 colorscheme one
 
 " format rust code every time buffer is written
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 " ========================================================= Spaces and tabs
 
