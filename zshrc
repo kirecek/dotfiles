@@ -6,10 +6,13 @@ DISABLE_AUTO_TITLE="false"
 
 plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search zsh-wakatime docker)
 
-
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$GOROOT/bin:/usr/bin/core_perl"
-
 source $ZSH/oh-my-zsh.sh
+
+export GOPATH=$HOME/.go:$HOME/devel/gopher
+
+export GOBIN=$HOME/.go/bin
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$GOROOT/bin:$PATH"
 
 export LANG=en_US.UTF-8
 
