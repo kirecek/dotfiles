@@ -16,20 +16,19 @@ set encoding=utf-8
 
 call plug#begin('~/.plugged')
 
+
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
-" syntax highlight for JSX
-Plug 'git@github.com:mxw/vim-jsx.git'
+Plug 'fatih/vim-go'
+
+Plug 'posva/vim-vue'
 
 " nerdtree -> tree style navigation panel
 Plug 'git@github.com:scrooloose/nerdtree.git'
 
 " emmet -> impove html and css workflow
 Plug 'git@github.com:mattn/emmet-vim.git'
-
-" autoclose brackets
-" Plug 'jiangmiao/auto-pairs'
 
 " visualy display indent levels
 Plug 'nathanaelkane/vim-indent-guides'
@@ -50,11 +49,14 @@ Plug 'luochen1990/rainbow'
 " measure your coding time
 Plug 'wakatime/vim-wakatime'
 
-" multicursor plugin
-Plug 'terryma/vim-multiple-cursors'
+" jsx syntax
+Plug 'git@github.com:mxw/vim-jsx.git'
 
 " yml syntax
 Plug 'stephpy/vim-yaml'
+
+" toml syntax
+Plug 'cespare/vim-toml'
 
 " rustlang syntax
 Plug 'rust-lang/rust.vim'
