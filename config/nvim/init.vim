@@ -20,8 +20,10 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
+" golang vim tools
 Plug 'fatih/vim-go'
 
+" vuejs syntax
 Plug 'posva/vim-vue'
 
 " nerdtree -> tree style navigation panel
@@ -29,9 +31,6 @@ Plug 'git@github.com:scrooloose/nerdtree.git'
 
 " emmet -> impove html and css workflow
 Plug 'git@github.com:mattn/emmet-vim.git'
-
-" visualy display indent levels
-Plug 'nathanaelkane/vim-indent-guides'
 
 " motion plugin
 Plug 'justinmk/vim-sneak'
@@ -69,6 +68,9 @@ Plug 'rakr/vim-one'
 
 " neomake
 Plug 'neomake/neomake'
+
+" b&w colorscheme
+Plug 'zaki/zazen'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -199,7 +201,7 @@ let g:onedark_terminal_italics = 1
 " settings related to deep-space theme
 let g:deepspace_italics = 1
 
-" enable true color support for nvim
+" " enable true color support for nvim
 if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
@@ -217,7 +219,7 @@ syntax on
 " set theme variant {dark, light}
 set background=dark
 " set *vi* theme
-colorscheme one
+colorscheme zazen
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 0
@@ -257,10 +259,10 @@ set number
 set showcmd
 
 " highlight currentline
-set cursorline
+" set cursorline
 
 " highlight cursor column
-set cursorcolumn
+" set cursorcolumn
 
 " load filetype-specific indent files
 filetype indent on
