@@ -12,27 +12,17 @@ set $mod Mod4
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# set color variables
-set $co_main      #282C34
-set $co_text      #B0B9C6
-set $co_white     #ffffff
-set $co_faded     #150A0E
-set $co_sbg       #212429
-set $co_sfg       #ffffff
-set $co_hlbg      #212429
-set $co_hlfg      #ffffff
-
 # set workspace names as variables
-set $workspace1 " 1 "
-set $workspace2 " 2 "
-set $workspace3 " 3 "
-set $workspace4 " 4 "
-set $workspace5 " 5 "
-set $workspace6 " 6 "
-set $workspace7 " 7 "
-set $workspace8 " 8 "
-set $workspace9 " 9 "
-set $workspaceA " 10 "
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspaceA "10: "
 
 # set monitor variables
 set $monitor1 LVDS1
@@ -57,10 +47,11 @@ bindsym $mod+Shift+q kill
 # application launcher
 bindsym $mod+d exec dmenu_run \
     -b \
-    -fn "Hack 10" \
-    -nb "$co_main" \
-    -nf "$co_text" \
-    -sb "$co_hlbg"
+    -nb "#000000" \
+    -nf "#FFFFFF" \
+    -sb "#00FF00" \
+    -sf "#000000" \
+    -fn "Hack 10"
 
 # change focused window
 bindsym $mod+h focus left
@@ -213,7 +204,7 @@ workspace_auto_back_and_forth yes
 # gaps outer 10
 
 # window border width <px>
-new_window pixel 2
+new_window pixel 1
 
 # border eges none|vertical|horizontal|both
 hide_edge_borders none
@@ -242,34 +233,33 @@ font pango: "Hack" 10
 # set WM's colors
 
 # <class>               <border>    <background>  <text>    <indicator>    <child_border>
-client.focused          $co_sbg     $co_sbg       $co_sfg   $co_main
-client.focused_inactive $co_main    $co_main      $co_text  $co_main
-client.unfocused        $co_main    $co_main      $co_text  $co_main
-client.urgent           $co_main    $co_main      $co_text  $co_main
+client.focused          #000000    #171717      #ffffff   #000000
+client.focused_inactive #000000    #000000      #ffffff   #000000
+client.unfocused        #000000    #000000      #ffffff   #000000
+client.urgent           #000000    #000000      #ffffff   #000000
 
-client.background       $co_main
+client.background       #000000
 
 # configure bar style
 bar {
+  strip_workspace_numbers yes
   i3bar_command i3bar
   status_command i3status -c ~/.config/i3/i3status.conf
   separator_symbol " ⏐ "
 
   font pango: Hack 10
-  # height 25
   position top
-  # mode hide
 
   colors {
 
-    background $co_main
-    statusline $co_text
+    background #000000
+    statusline #a3a3a3
 
-    # <colorclass>        <border>       <background>       <text>
-    focused_workspace     $co_hlbg         $co_hlbg               $co_hlfg
-    active_workspace      $co_main         $co_main               $co_text
-    inactive_workspace    $co_main         $co_main               $co_text
-    urgent_workspace      $co_main         $co_main               $co_text
+    # <colorclass>        <border>       <background>   <text>
+    focused_workspace     #000000        #000000        #ffffff
+    active_workspace      #000000        #000000        #777777
+    inactive_workspace    #000000        #000000        #777777
+    urgent_workspace      #000000        #000000        #777777
   }
 }
 
