@@ -20,9 +20,6 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
-" golang vim tools
-Plug 'fatih/vim-go'
-
 " vuejs syntax
 Plug 'posva/vim-vue'
 
@@ -72,6 +69,15 @@ Plug 'neomake/neomake'
 " b&w colorscheme
 Plug 'zaki/zazen'
 
+" golang vim tools
+Plug 'fatih/vim-go'
+
+" asynchronous completion framework for neovim
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Golang autocompletion
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -79,6 +85,8 @@ call plug#end()
 
 " autoclose preview window
 " let g:ycm_autoclose_preview_window_after_completion=1
+
+let g:deoplete#enable_at_startup = 1
 
 " ========================================================= Rust
 
@@ -367,3 +375,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 au FileType javascript setl sw=2 sts=2 ts=2 et
 au FileType html setl sw=2 sts=2 ts=2 et
 au FileType css setl sw=2 sts=2 ts=2 et
+
+" ========================================================= vim-go settings
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
