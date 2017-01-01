@@ -47,10 +47,10 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-*background: #282c34
-*foreground: #abb2bf
+*background: #000000
+*foreground: #ffffff
 
-urxvt*background: #1D262B
+urxvt*background: #000000
 
 !!*fading: 40
 RfadeColor: #002b36
