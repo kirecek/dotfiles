@@ -16,6 +16,7 @@ set encoding=utf-8
 
 call plug#begin('~/.plugged')
 
+Plug 'reedes/vim-colors-pencil'
 
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
@@ -31,6 +32,8 @@ Plug 'git@github.com:mattn/emmet-vim.git'
 
 " motion plugin
 Plug 'justinmk/vim-sneak'
+
+Plug 'albertorestifo/github.vim'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -189,7 +192,7 @@ let g:multi_cursor_use_default_mapping=0
 " ========================================================= Airline
 
 " set theme for statusbar
-let g:airline_theme = 'one'
+let g:airline_theme = 'pencil'
 
 " automatically display all buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -227,7 +230,7 @@ syntax on
 " set theme variant {dark, light}
 set background=dark
 " set *vi* theme
-colorscheme zazen
+colorscheme pencil
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 0

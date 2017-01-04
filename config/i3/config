@@ -236,12 +236,12 @@ font pango: "Hack" 10
 # set WM's colors
 
 # <class>               <border>    <background>  <text>    <indicator>    <child_border>
-client.focused          #000000    #171717      #ffffff   #000000
-client.focused_inactive #000000    #000000      #ffffff   #000000
-client.unfocused        #000000    #000000      #ffffff   #000000
-client.urgent           #000000    #000000      #ffffff   #000000
+client.focused          #005F87    #005F87      #ffffff   #d0d0d0
+client.focused_inactive #d0d0d0    #d0d0d0      #545454   #d0d0d0
+client.unfocused        #d0d0d0    #d0d0d0      #545454   #d0d0d0
+client.urgent           #d0d0d0    #d0d0d0      #545454   #d0d0d0
 
-client.background       #000000
+client.background       #545454
 
 # configure bar style
 bar {
@@ -255,14 +255,14 @@ bar {
 
   colors {
 
-    background #000000
-    statusline #a3a3a3
+    background #D9D9D9
+    statusline #545454
 
     # <colorclass>        <border>       <background>   <text>
-    focused_workspace     #000000        #000000        #ffffff
-    active_workspace      #000000        #000000        #777777
-    inactive_workspace    #000000        #000000        #777777
-    urgent_workspace      #000000        #000000        #777777
+    focused_workspace     #005F87        #005F87        #ffffff
+    active_workspace      #545454        #545454        #ffffff
+    inactive_workspace    #545454        #545454        #ffffff
+    urgent_workspace      #545454        #545454        #ffffff
   }
 }
 
