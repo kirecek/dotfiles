@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="fishy"
 
 DISABLE_AUTO_TITLE="false"
 
@@ -8,15 +8,15 @@ plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search 
 
 source $ZSH/oh-my-zsh.sh
 
-export GOPATH=$HOME/.go:$HOME/devel/gopher
+export DEVEL_ROOT=$HOME/chamber-of-code
+
+export GOPATH=$HOME/.go:$DEVEL_ROOT
 
 export GOBIN=$HOME/.go/bin
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$GOROOT/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$GOROOT/bin:$GOBIN:$PATH"
 
 export LANG=en_US.UTF-8
-
-export PASSWORD_STORE_DIR=$HOME/sapass/password-store
 
 export WORKON_HOME=$HOME/.virtualenvs
 
@@ -32,21 +32,8 @@ else
 fi
 
 
-[ -f ~/.config/zsh/zsh_aliases ] && source ~/.config/zsh/zsh_aliases
-
-[ -f ~/.config/zsh/zsh_tweaks ] && source ~/.config/zsh/zsh_tweaks
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+[ -f ~/.config/zsh/zsh_opts ] && source ~/.config/zsh/zsh_opts
+[ -f ~/.config/zsh/zsh_aliases ] && source ~/.config/zsh/zsh_aliases
+[ -f ~/.config/zsh/zsh_private ] && source ~/.config/zsh/zsh_private
 [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
-
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt SHARE_HISTORY
-
-unsetopt HIST_VERIFY
-
