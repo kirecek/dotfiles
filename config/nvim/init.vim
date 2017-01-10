@@ -24,6 +24,8 @@ Plug 'git@github.com:vim-airline/vim-airline.git'
 " vuejs syntax
 Plug 'posva/vim-vue'
 
+Plug 'KeitaNakamura/neodark.vim'
+
 " nerdtree -> tree style navigation panel
 Plug 'git@github.com:scrooloose/nerdtree.git'
 
@@ -230,7 +232,8 @@ syntax on
 " set theme variant {dark, light}
 set background=dark
 " set *vi* theme
-colorscheme pencil
+let g:neodark#background='black'
+colorscheme neodark
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 0
@@ -387,3 +390,7 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" ========================================================= python settings
+let g:python_host_prog = '~/.virtualenvs/neopy2/bin/python'
+let g:python3_host_prog = '~/.virtualenvs/neopy3/bin/python'
