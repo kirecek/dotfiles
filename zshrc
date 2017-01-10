@@ -4,11 +4,13 @@ ZSH_THEME="fishy"
 
 DISABLE_AUTO_TITLE="false"
 
-plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search zsh-wakatime docker)
+plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search)
 
 source $ZSH/oh-my-zsh.sh
 
 export DEVEL_ROOT=$HOME/chamber-of-code
+
+export GOROOT=$HOME/.go
 
 export GOPATH=$HOME/.go:$DEVEL_ROOT
 
@@ -22,7 +24,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export XDG_HOME_CONFIG=$HOME/.config
 
-export TERMINAL=urxvt
+export TERMINAL=st
 
 
 if [[ -n $SSH_CONNECTION ]]; then
