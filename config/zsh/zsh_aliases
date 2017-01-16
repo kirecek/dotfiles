@@ -19,6 +19,10 @@ alias vi=nvim
 # flatpak apps
 alias flat-libre="flatpak run org.libreoffice.LibreOffice"
 
+# dockerized apps
+alias dock-psql="docker run --rm -it postgres psql"
+alias dock-mysql="docker run --rm -it mysql mysql"
+
 # ====================================================== lol aliases
 
 alias fucking="sudo"
