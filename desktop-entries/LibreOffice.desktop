@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=LibreOffice
+Comment=Containerized LibreOffice
+# Path=
+Exec=flatpak run --filesystem=/tmp:ro org.libreoffice.LibreOffice
+Icon=
+Terminal=false
+Categories=Excel;Word
