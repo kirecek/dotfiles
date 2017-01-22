@@ -9,14 +9,14 @@ X:
 	ln -fs $(DOTFILES)/rc/Xdefaults ${HOME}/.Xdefaults
 
 zsh:
-	ln -fs $(DOTFILES)/config/zsh ${XDG_HOME_CONFIG}/zsh
+	ln -fns $(DOTFILES)/config/zsh ${XDG_HOME_CONFIG}/zsh
 	ln -fs $(DOTFILES)/rc/zshrc ${HOME}/.zshrc
 
 neovim:
-	ln -fs $(DOTFILES)/config/nvim ${XDG_HOME_CONFIG}/nvim
+	ln -fns $(DOTFILES)/config/nvim ${XDG_HOME_CONFIG}/nvim
 
 ranger:
-	ln -fs $(DOTFILES)/config/ranger ${XDG_HOME_CONFIG}/ranger
+	ln -fns $(DOTFILES)/config/ranger ${XDG_HOME_CONFIG}/ranger
 
 i3:
-	ln -fs $(DOTFILES)/config/ranger ${XDG_HOME_CONFIG}/ranger
+	ln -fns $(DOTFILES)/config/i3 ${XDG_HOME_CONFIG}/i3
