@@ -12,7 +12,9 @@ export DEVEL_ROOT=$HOME/chamber-of-code
 
 export GOROOT=$HOME/.go
 
-export GOPATH=$HOME/go-burrow
+export GOBURROW=$HOME/go-burrow
+
+export GOPATH=$GOBURROW
 
 export GOBIN=$HOME/.go/bin
 
