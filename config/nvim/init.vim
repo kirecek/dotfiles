@@ -47,9 +47,6 @@ Plug 'junegunn/fzf.vim'
 " colorfull parentheses
 Plug 'luochen1990/rainbow'
 
-" measure your coding time
-Plug 'wakatime/vim-wakatime'
-
 " jsx syntax
 Plug 'git@github.com:mxw/vim-jsx.git'
 
