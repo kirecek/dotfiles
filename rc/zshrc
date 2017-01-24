@@ -4,7 +4,7 @@ ZSH_THEME="fishy"
 
 DISABLE_AUTO_TITLE="false"
 
-plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search)
+plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
