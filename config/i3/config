@@ -13,27 +13,27 @@ set $mod Mod4
 floating_modifier $mod
 
 # set workspace names as variables
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-set $workspace9 "9: "
-set $workspaceA "10: "
+set $workspace1 "1:➊ "
+set $workspace2 "2:➋ "
+set $workspace3 "3:➌ "
+set $workspace4 "4:➍ "
+set $workspace5 "5:➎ "
+set $workspace6 "6:➏ "
+set $workspace7 "7:➐ "
+set $workspace8 "8:➑ "
+set $workspace9 "9:➒ "
+set $workspaceA "10:➓ "
 
 # set monitor variables
 set $monitor1 LVDS1
 set $monitor2 VGA1
 
 # color variables
+set $hl #005F87
 set $mainbg #4d4d4d
 set $mainfg #ffffff
 set $stackbg #2E2E2E
 set $stackfg #9B9B9B
-set $hl #005F87
 
 #######################################
 #
@@ -213,7 +213,7 @@ workspace_auto_back_and_forth yes
 # gaps outer 10
 
 # window border width <px>
-new_window pixel 1
+new_window pixel 2
 
 # border eges none|vertical|horizontal|both
 hide_edge_borders none
