@@ -41,3 +41,5 @@ fi
 [ -f ~/.config/zsh/zsh_aliases ] && source ~/.config/zsh/zsh_aliases
 [ -f ~/.config/zsh/zsh_private ] && source ~/.config/zsh/zsh_private
 [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
+
+eval $(thefuck --alias)
