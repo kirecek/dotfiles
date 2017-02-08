@@ -229,7 +229,7 @@ syntax on
 " set theme variant {dark, light}
 set background=dark
 " set *vi* theme
-let g:neodark#background='black'
+let g:neodark#background='gray'
 colorscheme neodark
 
 " format rust code every time buffer is written
