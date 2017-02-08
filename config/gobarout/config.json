@@ -1,20 +1,5 @@
 [
     {
-        "name": "echo",
-        "args": ["%{l}"]
-    },
-    {
-        "name": "./workspaces.py"
-    },
-    {
-        "name": "echo",
-        "args": ["%{c}"]
-    },
-    {
-        "name": "echo",
-        "args": ["%{r}"]
-    },
-    {
         "name": "./clock.sh",
         "refresh": "1s"
     }
