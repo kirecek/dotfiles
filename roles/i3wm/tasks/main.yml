@@ -1,0 +1,19 @@
+# i3wm package installation
+#
+- name: Install latest i3wm package
+  pacman: name=i3 state=latest
+  become_method: sudo
+
+# Link configuration files
+#
+- name: Makes sure i3 directory exists
+  file: path="~/.config/i3" state=directory
+
+- name: Create symbolic link for init.vim
+  file:
+    src: "{{ playbook_dir }}/roles/i3wm/files/{{ item }}"
+    dest: "~/.config/i3/{{ item }}"
+    state: link
+  with_items:
+    - "config"
+    - "i3status.conf"
