@@ -230,7 +230,7 @@ syntax on
 set background=dark
 " set *vi* theme
 let g:neodark#background='gray'
-colorscheme neodark
+colorscheme one
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 0
