@@ -1,0 +1,13 @@
+# Tmux package installation
+#
+- name: Install latest tmux package
+  pacman: name=tmux state=latest
+  become_method: sudo
+
+# Postinstall configuration
+#
+- name: Create symbolic link for tmux conf file
+  file:
+    src: "{{ playbook_dir }}/roles/tmux/files/tmux.conf"
+    dest: "~/.tmux.conf"
+    state: link
