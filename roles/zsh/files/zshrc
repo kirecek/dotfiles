@@ -1,0 +1,47 @@
+export ZSH=$HOME/.oh-my-zsh
+
+export XDG_HOME_CONFIG=$HOME/.config
+
+export ZSH_THEME="akamaru"
+
+export ZSH_CUSTOM=$XDG_HOME_CONFIG/zsh
+
+export DISABLE_AUTO_TITLE="false"
+
+plugins=(git vi-mode history-substring-search jsontools sudo systemd web-search kubectl)
+
+source $ZSH/oh-my-zsh.sh
+
+export DEVEL_ROOT=$HOME/chamber-of-code
+
+export GOROOT=$HOME/.go
+
+export GOBURROW=$HOME/go-burrow
+
+export GOPATH=$GOBURROW
+
+export GOBIN=$HOME/.go/bin
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$GOROOT/bin:$GOBIN:$PATH"
+
+export LANG=en_US.UTF-8
+
+export WORKON_HOME=$HOME/.virtualenvs
+
+export ANSIBLE_NOCOWS=1
+
+export TERMINAL=roxterm
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/zsh/zsh_opts ] && source ~/.config/zsh/zsh_opts
+[ -f ~/.config/zsh/zsh_aliases ] && source ~/.config/zsh/zsh_aliases
+[ -f ~/.config/zsh/zsh_private ] && source ~/.config/zsh/zsh_private
+[ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
+
+eval $(thefuck --alias)
