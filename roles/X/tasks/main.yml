@@ -1,0 +1,16 @@
+- name: Check if Xdefaults exists
+  stat: path="~/.Xdefaults"
+  register: xdefs_stat
+  failed_when: False
+
+- name: Backup Xdefaults
+  command: mv ~/.Xdefaults ~/.Xdefaults.backup
+  args:
+    creates: "~/.Xdefaults"
+  when: xdefs_stat.stat.exists
+
+- name: Create symbolic link for Xdefaults
+  file:
+    src: "{{ playbook_dir }}/roles/X/files/Xdefaults"
+    dest: "~/.Xdefaults"
+    state: link

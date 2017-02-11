@@ -29,10 +29,10 @@ set $monitor1 LVDS1
 set $monitor2 VGA1
 
 # color variables
-set $hl #005F87
-set $mainbg #4d4d4d
-set $mainfg #ffffff
-set $stackbg #2E2E2E
+set $hl #ffffff
+set $mainbg #C6C8C9
+set $mainfg #1E2327
+set $stackbg #1E2327
 set $stackfg #9B9B9B
 
 #######################################

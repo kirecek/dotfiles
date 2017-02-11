@@ -1,0 +1,13 @@
+---
+- name: Collecting facts
+  hosts: localhost
+  gather_facts: yes
+
+- name: Set up local packages and configuration
+  hosts: localhost
+  roles:
+  - neovim
+  - zsh
+  - tmux
+  - i3wm
+  - X
