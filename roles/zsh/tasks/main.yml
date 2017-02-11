@@ -1,0 +1,45 @@
+# Zsh and Git package installation
+#
+- name: Install zsh
+  pacman: name=zsh state=latest
+  become_method: sudo
+  register: zsh_install
+
+- name: Make sure zsh directory exists
+  file: path="~/.config/zsh" state=directory
+
+- name: Make sure zsh/themes directory exists
+  file: path="~/.config/zsh/themes" state=directory
+
+# Install oh-my-zsh ~ zsh management framework
+#
+- name: Clone oh-my-zsh
+  git:
+    repo=git://github.com/robbyrussell/oh-my-zsh
+    dest=~/.oh-my-zsh
+  when: zsh_install|success
+
+# Create symbolic links for zsh rc files
+#
+- name: Create symbolic link for zshrc
+  file:
+    src: "{{ playbook_dir }}/roles/zsh/files/zshrc"
+    dest: "~/.zshrc"
+    state: link
+
+- name: Create symlinks for extra zsh source files
+  file:
+    src: "{{ playbook_dir }}/roles/zsh/files/{{ item }}"
+    dest: "~/.config/zsh/{{ item }}"
+    state: link
+  with_items:
+  - "zsh_aliases"
+  - "zsh_opts"
+
+- name: Create symlinks for oh-my-zsh custom themes
+  file:
+    src: "{{ playbook_dir }}/roles/zsh/files/themes/{{ item }}"
+    dest: "~/.config/zsh/themes/{{ item }}"
+    state: link
+  with_items:
+  - "akamaru.zsh-theme"
