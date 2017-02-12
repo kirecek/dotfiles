@@ -14,3 +14,20 @@
     src: "{{ playbook_dir }}/roles/X/files/Xdefaults"
     dest: "~/.Xdefaults"
     state: link
+
+- name: Check if Xresources exists
+  stat: path="~/.Xresources"
+  register: xress_stat
+  failed_when: False
+
+- name: Backup Xresources
+  command: mv ~/.Xresources ~/.Xresources.backup
+  args:
+    creates: "~/.Xresources"
+  when: xress_stat.stat.exists
+
+- name: Create symbolic link for Xresources
+  file:
+    src: "{{ playbook_dir }}/roles/X/files/Xresources"
+    dest: "~/.Xresources"
+    state: link
