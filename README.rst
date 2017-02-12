@@ -1,9 +1,15 @@
 dotfiles
 ========
 
-    with ansible for archlinux
+    with ansible, for archlinux
 
 Configure entire linux environment in one command.
+
+
+.. image:: http://i.imgur.com/OeMIPyj.png
+   :alt: linux desktop
+   :width: 100%
+   :align: center
 
 Dependencies
 ~~~~~~~~~~~~
