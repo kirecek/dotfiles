@@ -1,0 +1,56 @@
+!-------------------------------------------------------------------------------
+! i3 settings
+!-------------------------------------------------------------------------------
+
+!! client.backgroud
+i3.cBackground:             #545454
+
+!! client.focused
+i3.cFocusedBorder:          #D9D9D9
+i3.cFocusedBackground:      #D9D9D9
+i3.cFocusedText:            #545454
+i3.cFocusedIndicator:       #D9D9D9
+
+!! client.focused_inactive
+i3.cInactiveBorder:         #545454
+i3.cInactiveBackground:     #545454
+i3.cInactiveText:           #D9D9D9
+i3.cInactiveIndicator:      #545454
+
+!! client.unfocused
+i3.cUnfocusedBorder:        #545454
+i3.cUnfocusedBackground:    #545454
+i3.cUnfocusedText:          #D9D9D9
+i3.cUnfocusedIndicator:     #545454
+
+!! client.urgent
+i3.cUrgentBorder:           #636C81
+i3.cUrgentBackground:       #636C81
+i3.cUrgentText:             #D9D9D9
+i3.cUrgentIndicator:        #636C81
+
+!! bar.background
+i3.bBackground:             #282C34
+
+!! bar.statusline
+i3.bStatusline:             #636C81
+
+!! bar.focused_workspace
+i3.bFocusedBorder:          #282C34
+i3.bFocusedBackground:      #D9D9D9
+i3.bFocusedText:            #000000
+
+!! bar.active_workspace
+i3.bActiveBorder:           #282C34
+i3.bActiveBackground:       #636C81
+i3.bActiveText:             #000000
+
+!! bar.inactive_workspace
+i3.bInactiveBorder:         #282C34
+i3.bInactiveBackground:     #282C34
+i3.bInactiveText:           #636C81
+
+!! bar.urgent_workspace
+i3.bUrgentBorder:           #282C34
+i3.bUrgentBackground:       #636C81
+i3.bUrgentText:             #000000
