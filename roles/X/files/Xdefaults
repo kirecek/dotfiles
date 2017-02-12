@@ -50,7 +50,6 @@ URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
-URxvt*background:           #000000
 
 !!*fading: 40
 RfadeColor:                 #002b36
@@ -62,7 +61,7 @@ RfadeColor:                 #002b36
 ! Color settings
 !-------------------------------------------------------------------------------
 
-*background:                #000000
+*background:                #282C34
 *foreground:                #ffffff
 
 !! black dark/light
