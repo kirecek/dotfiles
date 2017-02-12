@@ -30,7 +30,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export ANSIBLE_NOCOWS=1
 
-export TERMINAL=st
+export TERMINAL=roxterm
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
