@@ -34,47 +34,47 @@ set $monitor2 VGA1
 
 # load color variables from Xresources
 #
-set_from_resource $cBackground  i3.cBackground          #000000
+set_from_resource $cBackground      i3.cBackground          #000000
 
-set_from_resource $cFBorder     i3.cFocusedBorder       #FFFFFF
-set_from_resource $cFBackgroud  i3.cFocusedBackground   #FFFFFF
-set_from_resource $cFText       i3.cFocusedText         #000000
-set_from_resource $cFIndicator  i3.cFocusedIndicator    #FFFFFF
+set_from_resource $cFBorder         i3.cFocusedBorder       #FFFFFF
+set_from_resource $cFBackground     i3.cFocusedBackground   #FFFFFF
+set_from_resource $cFText           i3.cFocusedText         #000000
+set_from_resource $cFIndicator      i3.cFocusedIndicator    #FFFFFF
 
-set_from_resource $cIBorder     i3.cInactiveBorder      #000000
-set_from_resource $cIBackgroud  i3.cInactiveBackground  #000000
-set_from_resource $cIText       i3.cInactiveText        #FFFFFF
-set_from_resource $cIIndicator  i3.cInactiveIndicator   #000000
+set_from_resource $cIBorder         i3.cInactiveBorder      #000000
+set_from_resource $cIBackground     i3.cInactiveBackground  #000000
+set_from_resource $cIText           i3.cInactiveText        #FFFFFF
+set_from_resource $cIIndicator      i3.cInactiveIndicator   #000000
 
-set_from_resource $cUfBorder    i3.cUnfocusedBorder     #000000
-set_from_resource $cUfBackgroud i3.cUnfocusedBackground #000000
-set_from_resource $cUfText      i3.cUnfocusedText       #FFFFFF
-set_from_resource $cUfIndicator i3.cUnfocusedIndicator  #000000
+set_from_resource $cUfBorder        i3.cUnfocusedBorder     #000000
+set_from_resource $cUfBackground    i3.cUnfocusedBackground #000000
+set_from_resource $cUfText          i3.cUnfocusedText       #FFFFFF
+set_from_resource $cUfIndicator     i3.cUnfocusedIndicator  #000000
 
-set_from_resource $cUrBorder    i3.cUrgentBorder        #000000
-set_from_resource $cUrBackgroud i3.cUrgentBackground    #000000
-set_from_resource $cUrText      i3.cUrgentText          #FFFFFF
-set_from_resource $cUrIndicator i3.cUrgentIndicator     #000000
+set_from_resource $cUrBorder        i3.cUrgentBorder        #000000
+set_from_resource $cUrBackground    i3.cUrgentBackground    #000000
+set_from_resource $cUrText          i3.cUrgentText          #FFFFFF
+set_from_resource $cUrIndicator     i3.cUrgentIndicator     #000000
 
-set_from_resource $bBackground  i3.bBackground          #000000
+set_from_resource $bBackground      i3.bBackground          #000000
 
-set_from_resource $bStatusline  i3.bStatusline          #FFFFFF
+set_from_resource $bStatusline      i3.bStatusline          #FFFFFF
 
-set_from_resource $bFBorder     i3.bFocusedBorder       #FFFFFF
-set_from_resource $bFBackgroud  i3.bFocusedBackground   #FFFFFF
-set_from_resource $bFText       i3.bFocusedText         #000000
+set_from_resource $bFBorder         i3.bFocusedBorder       #FFFFFF
+set_from_resource $bFBackground     i3.bFocusedBackground   #FFFFFF
+set_from_resource $bFText           i3.bFocusedText         #000000
 
-set_from_resource $bABorder     i3.bActiveBorder        #FFFFFF
-set_from_resource $bABackgroud  i3.bActiveBackground    #FFFFFF
-set_from_resource $bAText       i3.bActiveText          #000000
+set_from_resource $bABorder         i3.bActiveBorder        #FFFFFF
+set_from_resource $bABackground     i3.bActiveBackground    #FFFFFF
+set_from_resource $bAText           i3.bActiveText          #000000
 
-set_from_resource $bIBorder     i3.bInactiveBorder      #FFFFFF
-set_from_resource $bIBackgroud  i3.bInactiveBackground  #FFFFFF
-set_from_resource $bIText       i3.bInactiveText        #000000
+set_from_resource $bIBorder         i3.bInactiveBorder      #FFFFFF
+set_from_resource $bIBackground     i3.bInactiveBackground  #FFFFFF
+set_from_resource $bIText           i3.bInactiveText        #000000
 
-set_from_resource $bUBorder     i3.bUrgentBorder        #FFFFFF
-set_from_resource $bUBackgroud  i3.bUrgentBackground    #FFFFFF
-set_from_resource $bUText       i3.bUrgentText          #000000
+set_from_resource $bUBorder         i3.bUrgentBorder        #FFFFFF
+set_from_resource $bUBackground     i3.bUrgentBackground    #FFFFFF
+set_from_resource $bUText           i3.bUrgentText          #000000
 
 #######################################
 #
