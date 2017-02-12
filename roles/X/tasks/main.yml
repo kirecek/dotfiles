@@ -6,7 +6,7 @@
 - name: Backup Xdefaults
   command: mv ~/.Xdefaults ~/.Xdefaults.backup
   args:
-    creates: "~/.Xdefaults"
+    creates: "~/.Xdefaults.backup"
   when: xdefs_stat.stat.exists
 
 - name: Create symbolic link for Xdefaults
@@ -23,7 +23,7 @@
 - name: Backup Xresources
   command: mv ~/.Xresources ~/.Xresources.backup
   args:
-    creates: "~/.Xresources"
+    creates: "~/.Xresources.backup"
   when: xress_stat.stat.exists
 
 - name: Create symbolic link for Xresources
