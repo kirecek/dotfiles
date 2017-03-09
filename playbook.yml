@@ -9,5 +9,7 @@
   - neovim
   - zsh
   - tmux
-  - i3wm
+  - {role: i3wm, tags: ['i3']}
+  - {role: dwm, tags: ['dwm']}
+  - {role: slock, tags: ['dwm']}
   - X
