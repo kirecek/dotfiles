@@ -1,0 +1,11 @@
+# custom  installation of DWM
+#
+- name: Update checksums for DWM package
+  command: updpkgsums
+  args:
+    chdir: "{{ playbook_dir }}/roles/dwm/files/"
+
+- name: Build and install dwm package
+  command: makepkg -fi
+  args:
+    chdir: "{{ playbook_dir }}/roles/dwm/files/"
