@@ -1,0 +1,11 @@
+# custom  installation of ST
+#
+- name: Update checksums for ST package
+  command: updpkgsums
+  args:
+    chdir: "{{ playbook_dir }}/roles/st/files/"
+
+- name: Build and install st package
+  command: makepkg -fi
+  args:
+    chdir: "{{ playbook_dir }}/roles/st/files/"
