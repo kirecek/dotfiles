@@ -35,7 +35,6 @@ static const Rule rules[] = {
 	/* class         instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",     NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Chromium",    NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "Thunderbird", NULL,       NULL,       8 << 0,       0,           -1 },
 };
 
 /* layout(s) */
