@@ -16,8 +16,6 @@ set encoding=utf-8
 
 call plug#begin('~/.plugged')
 
-Plug 'reedes/vim-colors-pencil'
-
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
@@ -65,11 +63,11 @@ Plug 'evanmiller/nginx-vim-syntax'
 " one colorscheme
 Plug 'rakr/vim-one'
 
+" pencil colorscheme (aitline theme included)
+Plug 'reedes/vim-colors-pencil'
+
 " neomake
 Plug 'neomake/neomake'
-
-" b&w colorscheme
-Plug 'zaki/zazen'
 
 " golang vim tools
 Plug 'fatih/vim-go'
@@ -79,6 +77,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Golang autocompletion
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+" Plugin which shows git diff in gutter (left column)
+Plug 'airblade/vim-gitgutter'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -229,7 +230,7 @@ syntax on
 " set theme variant {dark, light}
 set background=dark
 " set *vi* theme
-let g:neodark#background='gray'
+let g:neodark#background='#191919'
 colorscheme neodark
 
 " format rust code every time buffer is written
