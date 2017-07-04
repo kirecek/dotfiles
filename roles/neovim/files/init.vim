@@ -19,6 +19,9 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
+" docstring generator for python
+Plug 'vim-pydocstring'
+
 " vuejs syntax
 Plug 'posva/vim-vue'
 
