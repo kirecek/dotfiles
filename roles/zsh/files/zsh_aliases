@@ -40,6 +40,24 @@ function tfan {
     fi
 }
 
+# autoadd pragmas when creating python files
+function pytouch {
+    if [ -z "$1" ]; then
+        echo "Usage: pytouch [file1 file2 ...]"
+        exit 1
+    fi
+
+    for var in "$@"
+    do
+        if [[ -f "$var" || -d "$var" ]]; then
+            echo "'$var' already exists..."
+        else
+            echo "'$var' created..."
+            echo -e '#!/usr/bin/env python\n# -*- coding: utf-8 -*-' > $var
+        fi
+    done
+}
+
 # tmux(inator) session handler
 function tses {
     if [ "$#" -ne 1 ]; then
