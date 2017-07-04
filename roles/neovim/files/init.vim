@@ -20,7 +20,7 @@ call plug#begin('~/.plugged')
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
 " docstring generator for python
-Plug 'vim-pydocstring'
+Plug 'heavenshell/vim-pydocstring'
 
 " vuejs syntax
 Plug 'posva/vim-vue'
