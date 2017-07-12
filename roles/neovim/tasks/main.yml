@@ -2,7 +2,7 @@
 #
 - name: Install latest neovim package
   pacman: name=neovim state=latest
-  become_method: sudo
+  become: True
 
 # Plugin management for neovim
 #
@@ -31,7 +31,6 @@
   when: neoinit_stat.stat.exists
 
 - name: Create symbolic link for init.vim
-  file:
+  copy:
     src: "{{ playbook_dir }}/roles/neovim/files/init.vim"
     dest: "~/.config/nvim/init.vim"
-    state: link

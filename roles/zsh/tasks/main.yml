@@ -2,7 +2,7 @@
 #
 - name: Install zsh
   pacman: name=zsh state=latest
-  become_method: sudo
+  become: True
   register: zsh_install
 
 - name: Make sure zsh directory exists
@@ -19,27 +19,34 @@
     dest=~/.oh-my-zsh
   when: zsh_install|success
 
-# Create symbolic links for zsh rc files
+# Backup zshrc
 #
+- stat:
+   path: ~/.zshrc
+  register: zshrc_file
+
+- name: Backup zshrc
+  command: mv ~/.zshrc ~/.zshrc_backup
+  args:
+    creates: "~/.zshrc_packup"
+  when: zshrc_file.stat.exists
+
 - name: Create symbolic link for zshrc
-  file:
+  copy:
     src: "{{ playbook_dir }}/roles/zsh/files/zshrc"
     dest: "~/.zshrc"
-    state: link
 
-- name: Create symlinks for extra zsh source files
-  file:
+- name: Copy extra zsh source files
+  copy:
     src: "{{ playbook_dir }}/roles/zsh/files/{{ item }}"
     dest: "~/.config/zsh/{{ item }}"
-    state: link
   with_items:
   - "zsh_aliases"
   - "zsh_opts"
 
-- name: Create symlinks for oh-my-zsh custom themes
-  file:
+- name: Copy oh-my-zsh custom themes
+  copy:
     src: "{{ playbook_dir }}/roles/zsh/files/themes/{{ item }}"
     dest: "~/.config/zsh/themes/{{ item }}"
-    state: link
   with_items:
   - "akamaru.zsh-theme"

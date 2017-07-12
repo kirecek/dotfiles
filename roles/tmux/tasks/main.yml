@@ -2,12 +2,23 @@
 #
 - name: Install latest tmux package
   pacman: name=tmux state=latest
-  become_method: sudo
+  become: True
+
+# Backup existing configuration
+#
+- name: Check if .tmux.conf exists
+  stat: path="~/.tmux.conf"
+  register: tmux_stat
+
+- name: Backup existing tmux configuration
+  command: mv ~/.tmux.conf ~/.tmux_backup.conf
+  args:
+    creates: "~/.tmux.conf"
+  when: tmux_stat.stat.exists
 
 # Postinstall configuration
 #
 - name: Create symbolic link for tmux conf file
-  file:
+  copy:
     src: "{{ playbook_dir }}/roles/tmux/files/tmux.conf"
     dest: "~/.tmux.conf"
-    state: link

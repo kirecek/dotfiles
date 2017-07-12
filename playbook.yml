@@ -9,8 +9,6 @@
   - neovim
   - zsh
   - tmux
-  - {role: i3wm, tags: ['i3']}
-  - {role: dwm, tags: ['dwm']}
-  - {role: slock, tags: ['dwm']}
-  - {role: X, tags: ['dwm', 'i3']}
-  - st
+  - X
+  - {role: dwm, tags: ['gui']}
+  - {role: st, tags: ['gui']}

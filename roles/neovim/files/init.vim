@@ -393,5 +393,5 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " ========================================================= python settings
-let g:python_host_prog = $HOME.'.virtualenvs/neopy2/bin/python'
-let g:python3_host_prog = $HOME.'.virtualenvs/neopy3/bin/python'
+let g:python_host_prog = $HOME.'/.virtualenvs/neopy2/bin/python'
+let g:python3_host_prog = $HOME.'/.virtualenvs/neopy3/bin/python'

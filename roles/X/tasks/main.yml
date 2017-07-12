@@ -10,10 +10,9 @@
   when: xdefs_stat.stat.exists
 
 - name: Create symbolic link for Xdefaults
-  file:
+  copy:
     src: "{{ playbook_dir }}/roles/X/files/Xdefaults"
     dest: "~/.Xdefaults"
-    state: link
 
 - name: Check if Xresources exists
   stat: path="~/.Xresources"
@@ -27,7 +26,6 @@
   when: xress_stat.stat.exists
 
 - name: Create symbolic link for Xresources
-  file:
+  copy:
     src: "{{ playbook_dir }}/roles/X/files/Xresources"
     dest: "~/.Xresources"
-    state: link

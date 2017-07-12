@@ -1,3 +1,0 @@
-- name: Install slock package
-  pacman: name=slock state=latest
-  become_method: sudo
