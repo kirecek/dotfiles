@@ -4,6 +4,20 @@
   pacman: name=neovim state=latest
   become: True
 
+# Prepare python virtualenv
+#
+- name: Install neopy3 virtualenvironment
+  pip:
+    virtualenv: "~/.virtualenvs/neopy3"
+    virtualenv_python: python3
+    name: neovim
+
+- name: Install neopy2 virtualenvironment
+  pip:
+    virtualenv: "~/.virtualenvs/neopy2"
+    virtualenv_python: python2
+    name: neovim
+
 # Plugin management for neovim
 #
 - name: Makes sure autoload directory exists
@@ -30,7 +44,11 @@
     creates: "~/config/nvim/init.vim.backup"
   when: neoinit_stat.stat.exists
 
-- name: Create symbolic link for init.vim
+- name: Create init.vim config file
   copy:
     src: "{{ playbook_dir }}/roles/neovim/files/init.vim"
     dest: "~/.config/nvim/init.vim"
+
+# TODO
+# - name: Install Plug modules
+#   command: nvim +PlugInstall +qall
