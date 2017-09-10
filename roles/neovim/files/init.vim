@@ -19,6 +19,9 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
+" multicursor
+Plug 'terryma/vim-multiple-cursors'
+
 " docstring generator for python
 Plug 'heavenshell/vim-pydocstring'
 
@@ -83,6 +86,9 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Plugin which shows git diff in gutter (left column)
 Plug 'airblade/vim-gitgutter'
+
+" displays tags in a window, ordered by scope
+Plug 'majutsushi/tagbar'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -176,14 +182,14 @@ autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " open nerdtree with ctrl+n
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 
 " close *vi* if nerdtree is only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ========================================================= Multicursor
 
-let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_use_default_mapping=0
 
 " let g:multi_cursor_next_key='<C-n>'
 " let g:multi_cursor_prev_key='<C-p>'
@@ -238,6 +244,38 @@ colorscheme neodark
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 0
+
+" ========================================================= Tagbar
+
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
 
 " ========================================================= Spaces and tabs
 
