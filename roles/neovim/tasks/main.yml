@@ -1,8 +1,11 @@
 # Neovim package installation
 #
-- name: Install latest neovim package
-  pacman: name=neovim state=latest
+- name: Install required packages by neovim playbook
   become: True
+  pacman: name={{item}} state=latest
+  with_items:
+    - neovim
+    - python-virtualenv
 
 # Prepare python virtualenv
 #
