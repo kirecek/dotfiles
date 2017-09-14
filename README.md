@@ -1,5 +1,7 @@
 # dotfiles
 
+[![Build Status](https://travis-ci.org/kirecek/dotfiles.svg?branch=master)](https://travis-ci.org/kirecek/dotfiles)
+
 > with ansible, for archlinux
 
 Configure entire linux environment in one command.
