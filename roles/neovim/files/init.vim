@@ -19,6 +19,9 @@ call plug#begin('~/.plugged')
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
+" quantify coding time inside vim
+Plug 'wakatime/vim-wakatime'
+
 " multicursor
 Plug 'terryma/vim-multiple-cursors'
 
