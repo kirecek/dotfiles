@@ -42,10 +42,12 @@ else
   export EDITOR='nvim'
 fi
 
+eval $(thefuck --alias)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.config/zsh/zsh_opts ] && source ~/.config/zsh/zsh_opts
 [ -f ~/.config/zsh/zsh_aliases ] && source ~/.config/zsh/zsh_aliases
 [ -f ~/.config/zsh/zsh_private ] && source ~/.config/zsh/zsh_private
 [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
 
-eval $(thefuck --alias)
+[ $(tty) = "/dev/tty1" ] && startx
