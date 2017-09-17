@@ -16,6 +16,9 @@ set encoding=utf-8
 
 call plug#begin('~/.plugged')
 
+" git wrapper
+Plug 'tpope/vim-fugitive'
+
 " fancy statusbar
 Plug 'git@github.com:vim-airline/vim-airline.git'
 
