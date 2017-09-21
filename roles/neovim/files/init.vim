@@ -16,6 +16,9 @@ set encoding=utf-8
 
 call plug#begin('~/.plugged')
 
+" quoting/parenthesizing made simple
+Plug 'tpope/vim-surround'
+
 " git wrapper
 Plug 'tpope/vim-fugitive'
 
