@@ -16,6 +16,9 @@ set encoding=utf-8
 
 call plug#begin('~/.plugged')
 
+" retro groove colorscheme
+Plug 'morhetz/gruvbox'
+
 " quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
 
@@ -245,11 +248,15 @@ syntax enable
 " let g:solarized_termtrans = 1
 
 syntax on
+
 " set theme variant {dark, light}
 set background=dark
-" set *vi* theme
+
+" neodark colorscheme settings
 let g:neodark#background='#191919'
-colorscheme neodark
+
+" set *vi* theme
+colorscheme gruvbox
 
 " format rust code every time buffer is written
 let g:rustfmt_autosave = 0
