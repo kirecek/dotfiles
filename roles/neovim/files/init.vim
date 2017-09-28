@@ -117,6 +117,11 @@ let g:deoplete#enable_at_startup = 1
 " enable automatic running of :RustFmt
 let g:rustfmt_autosave = 1
 
+" ========================================================= Golang
+
+" autoimport packages when go file is saved
+autocmd BufWritePre *.go :GoImports
+
 " ========================================================= Sneak
 
 " enable vim-sneak
