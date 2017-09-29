@@ -19,6 +19,9 @@ call plug#begin('~/.plugged')
 " retro groove colorscheme
 Plug 'morhetz/gruvbox'
 
+" start a * or # search from a visual block
+Plug 'nelstrom/vim-visual-star-search'
+
 " quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
 
