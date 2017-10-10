@@ -78,9 +78,6 @@ Plug 'cespare/vim-toml'
 " rustlang syntax
 Plug 'rust-lang/rust.vim'
 
-" nginx syntax
-Plug 'evanmiller/nginx-vim-syntax'
-
 " one colorscheme
 Plug 'rakr/vim-one'
 
