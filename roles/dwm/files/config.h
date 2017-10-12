@@ -11,7 +11,7 @@ static const char dmenufont[]       = "Hack:size=10";
 static const char normbordercolor[] = "#000000";
 static const char normbgcolor[]     = "#0C0C0D";
 static const char normfgcolor[]     = "#8E8E8F";
-static const char selbordercolor[]  = "#501B36";
+static const char selbordercolor[]  = "#3A3A3A";
 static const char selbgcolor[]      = "#000000";
 static const char selfgcolor[]      = "#ffffff";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
