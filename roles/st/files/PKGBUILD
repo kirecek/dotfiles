@@ -17,11 +17,6 @@ url="http://st.suckless.org"
 source=(http://dl.suckless.org/st/$pkgname-$pkgver.tar.gz
         config.h)
 
-_patches=(st-scrollback-0.7.diff
-          st-scrollback-20160924-f739843.diff)
-
-source=(${source[@]} ${_patches[@]})
-
 prepare() {
   cd "$srcdir"/$pkgname-$pkgver
   # skip terminfo which conflicts with nsurses
@@ -44,6 +39,4 @@ package() {
 }
 
 md5sums=('29b2a599cf1511c8062ed8f025c84c63'
-         'b33d9e8b2688fc0a30fa40879aae3d4b'
-         'c55076d94247e121a1a86d32a793cf2e'
-         '2a3d5677eac917c07f31ef33908250c3')
+         'acf389fad337cdfc6e894936a9ec8a80')

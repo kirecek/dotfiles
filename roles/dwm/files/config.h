@@ -8,11 +8,11 @@ static const char *fonts[] = {
 	"Hack:size=10"
 };
 static const char dmenufont[]       = "Hack:size=10";
-static const char normbordercolor[] = "#535353";
-static const char normbgcolor[]     = "#2E2E2E";
-static const char normfgcolor[]     = "#9B9B9B";
-static const char selbordercolor[]  = "#4D4D4D";
-static const char selbgcolor[]      = "#212121";
+static const char normbordercolor[] = "#0C0C0D";
+static const char normbgcolor[]     = "#0C0C0D";
+static const char normfgcolor[]     = "#8E8E8F";
+static const char selbordercolor[]  = "#000000";
+static const char selbgcolor[]      = "#000000";
 static const char selfgcolor[]      = "#ffffff";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
