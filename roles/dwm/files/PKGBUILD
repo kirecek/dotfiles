@@ -33,4 +33,4 @@ package() {
   install -m644 -D README "$pkgdir"/usr/share/doc/$pkgname/README
 }
 md5sums=('f0b6b1093b7207f89c2a90b848c008ec'
-         '2f39e8c83d3651016fc2aedd78460324')
+         'aba32fdc51a0cc3712d58a57d78b8335')
