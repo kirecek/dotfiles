@@ -19,6 +19,9 @@ call plug#begin('~/.plugged')
 " retro groove colorscheme
 Plug 'morhetz/gruvbox'
 
+" use custom vim-kxxe256
+Plug 'kirecek-kxxe256'
+
 " start a * or # search from a visual block
 Plug 'nelstrom/vim-visual-star-search'
 
