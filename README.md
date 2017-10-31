@@ -31,4 +31,10 @@ Run ansible playbook:
 $ ansible-playbook playbook.yml
 ```
 
+Run without installing X stuff:
+
+```shell
+$ ansible-playbook --skip-tags=gui playbook.yml
+```
+
 **That's it!**
