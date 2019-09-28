@@ -8,3 +8,7 @@
 
 Managed with [chezmoi](https://github.com/twpayne/chezmoi).
                                    
+## Initialize
+
+
+`chezmoi init https://github.com/kirecek/dotfiles --apply`
