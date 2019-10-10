@@ -4,10 +4,10 @@
 export XDG_HOME_CONFIG=$HOME/.config
 
 # change default editor
-if [ -x "$(command -v vim)" ]; then
-    export EDITOR=vim
-elif [ -x "$(command -v nvim)" ]; then
+if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
+elif [ -x "$(command -v vim)" ]; then
+    export EDITOR=vim
 else
     export EDITOR=vi
 fi
@@ -169,3 +169,8 @@ if ! zplug check --verbose; then
         echo; zplug install
     fi
 fi
+
+# ------------------------------- zsh extensions
+
+# ext for renaming files
+autoload -U zmv
