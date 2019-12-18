@@ -21,6 +21,7 @@ set $workspace8 "8: ➑ "
 set $workspace9 "9: ➒ "
 set $workspaceA "10: ➓ "
 
+
 # -------------------------------------------------------------  Bindings
 
 # cycle between recent workspaces
@@ -71,6 +72,9 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
 
 # switch to n workspace
 bindsym $mod+1 workspace $workspace1
@@ -124,7 +128,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+i exec i3lock -c 020202
 
 # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Wanna die?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Wanna die?' -b 'Yes' 'i3-msg exit'"
 
 # bindings in resize mode
 bindsym $mod+r mode "resize"
@@ -142,6 +146,7 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
+
 # ------------------------------------------------------------- Output and window specific workspaces
 
 # assign window to class to workspace
@@ -154,7 +159,7 @@ assign [class="Thunderbird"] $workspaceA
 # smart_gaps on
 
 # set inner gap <px>
-gaps inner 10
+gaps inner 5
 
 # set outer gap <px>
 gaps outer 5
@@ -178,31 +183,18 @@ bindsym $mod+minus scratchpad show
 
 font pango: "Hack" 8
 
+# class                   border  bg      text    indic   child_border
+# client.focused            #0F111A #0F111A #ffffff #0F111A #0F111A
+# client.focused_inactive   #090B10 #090B10 #ffffff #090B10 #090B10
+# client.unfocused          #090B10 #090B10 #888888 #090B10 #090B10
+# client.urgent             #090B10 #090B10 #ffffff #090B10 #090B10
+# client.background #090B10
+
 client.focused          #282828 #282828 #83a598 #282828 #282828
 client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
 client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
-client.urgent           #cc241d #cc241d #fbdbb2 #282828 #282828
+client.urgent #cc241d #cc241d #fbdbb2 #282828 #282828
 
-# configure bar style
 bar {
-  # i3bar_command i3bar
-  status_command waybar
-  separator_symbol " ⏐ "
-  strip_workspace_numbers yes
-
-  font pango: Fira Code 10
-  height 30
-  position top
-
-  colors {
-    background #282828
-    statusline #ebdbb2
-    separator  #928374
-
-#                       border  backgro  text
-    focused_workspace   #B8BB26 #B8BB26 #282828
-    active_workspace    #7c6f64 #7c6f64 #282828
-    inactive_workspace  #282828 #282828 #ebdbb2
-    urgent_workspace    #cc241d #cc241d #ebdbb2
-  }
+  swaybar_command waybar
 }
