@@ -121,14 +121,14 @@ bindsym $mod+m move workspace to output left
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart swaybar
 bindsym $mod+Shift+r restart
 
 # lock screen
 bindsym $mod+i exec i3lock -c 020202
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Wanna die?' -b 'Yes' 'i3-msg exit'"
+# exit sway
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Wanna die?' -b 'Yes' 'swaymsg exit'"
 
 # bindings in resize mode
 bindsym $mod+r mode "resize"
@@ -151,7 +151,6 @@ mode "resize" {
 
 # assign window to class to workspace
 assign [window_role="browser"] $workspace1
-assign [class="Thunderbird"] $workspaceA
 
 # ------------------------------------------------------------- Gaps and borders
 
@@ -169,6 +168,8 @@ gaps outer 5
 
 # border eges none|vertical|horizontal|both
 hide_edge_borders none
+
+default_border none
 
 # ------------------------------------------------------------- Scratchpad
 
