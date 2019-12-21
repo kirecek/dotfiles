@@ -1,10 +1,10 @@
 * {
-	font-size: 20px;
+	font-size: 12px;
 	font-family: monospace;
 }
 
 window#waybar {
-	background: #292b2e;
+	background: #282828;
 	color: #fdf6e3;
 }
 
