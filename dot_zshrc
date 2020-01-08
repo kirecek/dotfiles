@@ -62,16 +62,17 @@ fi
 # ------------------------------- python settings
 
 # set `workon` default location
-if [ -x "$(command -v python)" ]; then
-	[ -f /usr/bin/virtualenvwrapper.sh ] \
-        && source /usr/bin/virtualenvwrapper.sh
+# if [ -x "$(command -v python)" ]; then
+# 	[ -f /usr/bin/virtualenvwrapper.sh ] \
+#         && source /usr/bin/virtualenvwrapper.sh
 
-	export WORKON_HOME=$HOME/.virtualenvs
-fi
+# 	export WORKON_HOME=$HOME/.virtualenvs
+# fi
 
 # user pyenv to manage python versions
 if [ -x "$(command -v pyenv)" ]; then
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 # ------------------------------ third-party scripts
