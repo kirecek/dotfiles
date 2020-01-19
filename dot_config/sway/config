@@ -199,3 +199,7 @@ client.urgent #cc241d #cc241d #fbdbb2 #282828 #282828
 bar {
   swaybar_command waybar
 }
+
+# ------------------------------------------------------------- Wallpaper
+
+ output "*" bg ~/.wallpaper fill
