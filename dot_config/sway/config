@@ -125,7 +125,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # lock screen
-bindsym $mod+i exec i3lock -c 020202
+bindsym $mod+i exec swaylock
 
 # exit sway
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'Wanna die?' -b 'Yes' 'swaymsg exit'"
