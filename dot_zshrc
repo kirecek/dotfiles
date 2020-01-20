@@ -110,8 +110,11 @@ alias dkr=docker
 alias watch='watch '
 
 # create a new tmux session with the given name. If session already exists, attach to it
-# Usage: tses <session-name>
 function tses() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: tses <session-name>"
+        return 1
+    fi
     tmux a -t $1 || tmux new -s $1
 }
 
