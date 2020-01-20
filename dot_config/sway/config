@@ -146,6 +146,7 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
+bindsym Control+Mod1+h exec CM_LAUNCHER=rofi clipmenu
 
 # ------------------------------------------------------------- Output and window specific workspaces
 
@@ -211,3 +212,7 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f'
+
+# ------------------------------------------------------------- Startup applications
+
+exec --no-startup-id clipmenud
