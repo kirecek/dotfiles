@@ -159,10 +159,10 @@ assign [window_role="browser"] $workspace1
 # smart_gaps on
 
 # set inner gap <px>
-gaps inner 5
+gaps inner 10
 
 # set outer gap <px>
-gaps outer 5
+gaps outer 10
 
 # window border width <px>
 # new_window pixel 2
