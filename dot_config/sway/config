@@ -155,22 +155,21 @@ assign [window_role="browser"] $workspace1
 
 # ------------------------------------------------------------- Gaps and borders
 
-# use gaps only if if there is > 1 containers
-# smart_gaps on
+smart_gaps off
+
+smart_borders on
 
 # set inner gap <px>
 gaps inner 10
 
 # set outer gap <px>
-gaps outer 10
+gaps outer 6
 
 # window border width <px>
-# new_window pixel 2
+default_border pixel 4
 
 # border eges none|vertical|horizontal|both
-hide_edge_borders none
-
-default_border none
+hide_edge_borders smart
 
 # ------------------------------------------------------------- Scratchpad
 
@@ -185,14 +184,8 @@ bindsym $mod+minus scratchpad show
 
 font pango: "Hack" 8
 
-# class                   border  bg      text    indic   child_border
-# client.focused            #0F111A #0F111A #ffffff #0F111A #0F111A
-# client.focused_inactive   #090B10 #090B10 #ffffff #090B10 #090B10
-# client.unfocused          #090B10 #090B10 #888888 #090B10 #090B10
-# client.urgent             #090B10 #090B10 #ffffff #090B10 #090B10
-# client.background #090B10
-
-client.focused          #282828 #282828 #83a598 #282828 #282828
+# class                 border  bg      text    indic   child_border
+client.focused          #1a1a1a #1a1a1a #83a598 #000000 #1a1a1a
 client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
 client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
 client.urgent #cc241d #cc241d #fbdbb2 #282828 #282828
