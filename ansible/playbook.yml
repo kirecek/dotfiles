@@ -1,0 +1,11 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    # - name: Install chezmoi
+    #   package:
+    #     name: chezmoi
+    #     state: present
+    - include: tasks/system.yml
+    - include: tasks/sway.yml
+    - include: tasks/programming-languages.yml
