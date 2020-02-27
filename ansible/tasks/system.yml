@@ -18,6 +18,7 @@
   - bat
   - fd
   - ripgrep
+  - fzf
 
 
 - name: Check if vim-plug exists

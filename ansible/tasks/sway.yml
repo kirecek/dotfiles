@@ -13,6 +13,12 @@
     - mako
     - rofi
     - clipmenu
+    - wl-clipboard
+    - libnotify
+    - xorg-server-xwayland
+    - pulseaudio
+    - pulseaudio-bluetooth
+    - pulseaudio-alsa
 
 
 - name: Install fonts
