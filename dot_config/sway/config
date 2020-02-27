@@ -155,7 +155,7 @@ assign [window_role="browser"] $workspace1
 
 # ------------------------------------------------------------- Gaps and borders
 
-smart_gaps off
+smart_gaps on
 
 smart_borders on
 
@@ -188,10 +188,16 @@ font pango: "Hack" 8
 client.focused          #1a1a1a #1a1a1a #83a598 #000000 #1a1a1a
 client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
 client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
-client.urgent #cc241d #cc241d #fbdbb2 #282828 #282828
+client.urgent           #cc241d #cc241d #fbdbb2 #282828 #282828
 
 bar {
   swaybar_command waybar
+}
+
+# ------------------------------------------------------------- Input settings
+
+input type:touchpad {
+  tap enabled
 }
 
 # ------------------------------------------------------------- Output settings
@@ -209,3 +215,4 @@ exec swayidle -w \
 # ------------------------------------------------------------- Startup applications
 
 exec --no-startup-id clipmenud
+exec pulseaudio --daemonize
