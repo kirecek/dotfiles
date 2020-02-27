@@ -1,0 +1,46 @@
+---
+
+- name: Install sway and related packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - sway
+    - swaybg
+    - swayidle
+    - swaylock
+    - waybar
+    - mako
+    - rofi
+    - clipmenu
+    - wl-clipboard
+    - libnotify
+    - xorg-server-xwayland
+    - pulseaudio
+    - pulseaudio-bluetooth
+    - pulseaudio-alsa
+
+
+- name: Install fonts
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ttf-hack
+    - ttf-fira-code
+    - ttf-fira-mono
+    - ttf-font-awesome
+    - ttf-inconsolata
+    - ttf-opensans
+    - ttf-dejavu
+    - ttf-droid
+    - ttf-ubuntu-font-family
+    - awesome-terminal-fonts
+
+
+- name: Install icons
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - adwaita-icon-theme

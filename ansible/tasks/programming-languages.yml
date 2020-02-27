@@ -1,0 +1,19 @@
+---
+
+- name: Install programming languages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python
+    - go
+    - rust
+    - elixir
+
+
+- name: Add additional packages for python language
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - pyenv
