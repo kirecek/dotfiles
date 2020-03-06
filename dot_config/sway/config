@@ -106,8 +106,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo brightnessctl s +500
+bindsym XF86MonBrightnessDown exec sudo brightnessctl s 500-
 
 # media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -166,7 +166,7 @@ gaps inner 10
 gaps outer 6
 
 # window border width <px>
-default_border pixel 4
+default_border pixel 2
 
 # border eges none|vertical|horizontal|both
 hide_edge_borders smart
@@ -185,10 +185,10 @@ bindsym $mod+minus scratchpad show
 font pango: "Hack" 8
 
 # class                 border  bg      text    indic   child_border
-client.focused          #1a1a1a #1a1a1a #83a598 #000000 #1a1a1a
+client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a
 client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
 client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
-client.urgent           #cc241d #cc241d #fbdbb2 #282828 #282828
+client.urgent #cc241d #cc241d #fbdbb2 #282828 #282828
 
 bar {
   swaybar_command waybar
@@ -203,6 +203,7 @@ input type:touchpad {
 # ------------------------------------------------------------- Output settings
 
  output "*" bg ~/.wallpaper fill
+ output eDP-1 pos 0 0 res 2048x1152
 
 # ------------------------------------------------------------- Idle configuration
 

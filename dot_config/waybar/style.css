@@ -30,6 +30,7 @@ window#waybar {
 #battery,
 #tray {
 	background: #1a1a1a;
+    color: #eee;
 }
 
 #workspaces button {
@@ -37,7 +38,7 @@ window#waybar {
 	color: #fdf6e3;
 }
 #workspaces button.focused {
-	color: #268bd2;
+	color: #a3c980;
 }
 #workspaces button:hover {
 	box-shadow: inherit;
@@ -47,25 +48,6 @@ window#waybar {
 	background: #1a1a1a;
 	border: #1a1a1a;
 	padding: 0 3px;
-}
-
-#pulseaudio {
-	color: #268bd2;
-}
-#backlight {
-	color: #b58900;
-}
-#memory {
-	color: #2aa198;
-}
-#temperature {
-	color: #b58900;
-}
-#cpu {
-	color: #6c71c4;
-}
-#battery {
-	color: #859900;
 }
 
 #clock,
