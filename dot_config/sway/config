@@ -216,4 +216,3 @@ exec swayidle -w \
 # ------------------------------------------------------------- Startup applications
 
 exec --no-startup-id clipmenud
-exec pulseaudio --daemonize
