@@ -106,6 +106,9 @@ alias k=kubectl
 alias tf=terraform
 alias dkr=docker
 
+# alternatives for linux built-ins
+alias cat=bat
+
 # check for alias substitution in watch
 alias watch='watch '
 
