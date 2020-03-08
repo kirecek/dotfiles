@@ -22,6 +22,12 @@
     - pulseaudio-alsa
 
 
+- name: Create sway/conf.d directory
+  file:
+    path: "~/.config/sway/config.d"
+    state: directory
+
+
 - name: Install fonts
   become: yes
   package:
