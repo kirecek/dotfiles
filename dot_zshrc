@@ -150,7 +150,7 @@ fi
 
 # -------------------------------- update path
 
-export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.tfenv/bin:$PATH"
 
 # -------------------------------- invoke gpg-agent
 
