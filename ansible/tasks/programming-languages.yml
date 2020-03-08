@@ -24,4 +24,4 @@
 - name: Add virtualenv plugin for pyenv
   git:
     repo: "https://github.com/pyenv/pyenv-virtualenv"
-    dest: "~/.pyenv"
+    dest: "~/.pyenv/plugins/pyenv-virtualenv"
