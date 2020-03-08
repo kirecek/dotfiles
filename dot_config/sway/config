@@ -203,7 +203,6 @@ input type:touchpad {
 # ------------------------------------------------------------- Output settings
 
  output "*" bg ~/.wallpaper fill
- output eDP-1 pos 0 0 res 2048x1152
 
 # ------------------------------------------------------------- Idle configuration
 
@@ -213,6 +212,11 @@ exec swayidle -w \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f'
 
+# ------------------------------------------------------------- Custom config extensions
+
+include config.d/*
+    
 # ------------------------------------------------------------- Startup applications
 
 exec --no-startup-id clipmenud
+
