@@ -19,3 +19,9 @@
     state: present
   with_items:
     - pyenv
+
+
+- name: Add virtualenv plugin for pyenv
+  git:
+    repo: "https://github.com/pyenv/pyenv-virtualenv"
+    dest: "~/.pyenv"
