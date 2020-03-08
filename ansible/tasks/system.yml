@@ -46,3 +46,9 @@
   git:
     repo: "https://github.com/tfutils/tfenv"
     dest: "~/.tfenv"
+
+
+- name: Install plugin manager for tmux
+  git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "~/.tmux/plugins/tpm"
