@@ -1,6 +1,7 @@
 ---
 
 - name: Install sway and related packages
+  become: yes
   package:
     name: "{{ item }}"
     state: present
@@ -22,6 +23,7 @@
 
 
 - name: Install fonts
+  become: yes
   package:
     name: "{{ item }}"
     state: present
@@ -39,6 +41,7 @@
 
 
 - name: Install icons
+  become: yes
   package:
     name: "{{ item }}"
     state: present

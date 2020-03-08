@@ -1,6 +1,7 @@
 ---
 
 - name: Install programming languages
+  become: yes
   package:
     name: "{{ item }}"
     state: present
@@ -12,6 +13,7 @@
 
 
 - name: Add additional packages for python language
+  become: yes
   package:
     name: "{{ item }}"
     state: present
