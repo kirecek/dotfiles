@@ -12,3 +12,11 @@ Managed with [chezmoi](https://github.com/twpayne/chezmoi).
 
 
 `chezmoi init https://github.com/kirecek/dotfiles --apply`
+
+## Packages
+
+To also istall GUI and packages, use ansible playbook located in ansible subdirectory.
+
+```
+$ ansible-playbook playbook.yaml
+```
