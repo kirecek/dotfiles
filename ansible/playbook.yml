@@ -3,6 +3,7 @@
   connection: local
   tasks:
     - name: Install chezmoi
+      become: yes
       package:
         name: chezmoi
         state: present
