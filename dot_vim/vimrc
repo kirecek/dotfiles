@@ -43,7 +43,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.plugged')
   if has('nvim')
     Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   else
@@ -52,16 +52,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'roxma/vim-hug-neovim-rpc'
   endif
 
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-  " {{{
-    let g:deoplete#enable_at_startup = 1
-  " }}}
+  " if has('nvim')
+  "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " else
+  "   Plug 'Shougo/deoplete.nvim'
+  "   Plug 'roxma/nvim-yarp'
+  "   Plug 'roxma/vim-hug-neovim-rpc'
+  " endif
+  " " {{{
+  "   let g:deoplete#enable_at_startup = 1
+  " " }}}
   Plug 'dense-analysis/ale'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-commentary'
@@ -85,7 +85,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   " {{{
     nnoremap <silent> <leader><space> :Files<CR>
-    nnoremap <silent> <leader>a :Buffers<CR>
+    nnoremap <silent> <leader>bb :Buffers<CR>
     nnoremap <silent> <leader>A :Windows<CR>
     nnoremap <silent> <leader>; :BLines<CR>
     nnoremap <silent> <leader>o :BTags<CR>
@@ -115,6 +115,11 @@ call plug#end()
   set background=dark
 
   colorscheme gruvbox
+"}}}
+
+" Extra mappings
+"{{{
+  nnoremap <silent> <leader>bk :bd<CR>
 "}}}
 
 " Go

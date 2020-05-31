@@ -1,5 +1,4 @@
 ---
-
 - name: Install programming languages
   become: yes
   package:
@@ -11,7 +10,6 @@
     - rust
     - elixir
 
-
 - name: Add additional packages for python language
   become: yes
   package:
@@ -19,7 +17,6 @@
     state: present
   with_items:
     - pyenv
-
 
 - name: Add virtualenv plugin for pyenv
   git:

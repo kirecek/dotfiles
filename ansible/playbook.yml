@@ -7,6 +7,6 @@
       package:
         name: chezmoi
         state: present
-    - include: tasks/system.yml
-    - include: tasks/sway.yml
-    - include: tasks/programming-languages.yml
+    - include: "{{ item }}"
+      with_fileglob:
+        - tasks/*.yml

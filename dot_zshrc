@@ -10,6 +10,10 @@ else
     export EDITOR=vi
 fi
 
+# ------------------------------- wakatime settings
+
+export ZSH_WAKATIME_PROJECT_DETECTION=true
+
 # ------------------------------- docker settings
 
 DOCKER_CLI_EXPERIMENTAL=enabled
@@ -46,7 +50,6 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     systemd  
     web-search  
     kubectl
-    autojump
     fzf
   )
 
@@ -112,7 +115,7 @@ alias cat=bat
 # check for alias substitution in watch
 alias watch='watch '
 
-# simple coinflip
+# decision maker
 alias coinflip="python -c \"print(__import__('random').choice(['Head', 'Tail']))\""
 
 # create a new tmux session with the given name. If session already exists, attach to it

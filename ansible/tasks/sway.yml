@@ -1,55 +1,25 @@
 ---
-
-- name: Install sway and related packages
-  become: yes
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
+- name: Sway
+  tags:
     - sway
-    - swaybg
-    - swayidle
-    - swaylock
-    - waybar
-    - mako
-    - rofi
-    - clipmenu
-    - wl-clipboard
-    - libnotify
-    - xorg-server-xwayland
-    - pulseaudio
-    - pulseaudio-bluetooth
-    - pulseaudio-alsa
+    - never
+  block:
+    - name: Install sway and related packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - sway
+        - swaybg
+        - swayidle
+        - swaylock
+        - waybar
+        - mako
+        - wofi
+        - bemenu
 
-
-- name: Create sway/conf.d directory
-  file:
-    path: "~/.config/sway/config.d"
-    state: directory
-
-
-- name: Install fonts
-  become: yes
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - ttf-hack
-    - ttf-fira-code
-    - ttf-fira-mono
-    - ttf-font-awesome
-    - ttf-inconsolata
-    - ttf-opensans
-    - ttf-dejavu
-    - ttf-droid
-    - ttf-ubuntu-font-family
-    - awesome-terminal-fonts
-
-
-- name: Install icons
-  become: yes
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - adwaita-icon-theme
+    - name: Create sway/conf.d directory
+      file:
+        path: "~/.config/sway/config.d"
+        state: directory
