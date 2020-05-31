@@ -1,4 +1,4 @@
-" VIM classic settings
+" Just VIM
 "{{{
   if &compatible
     set nocompatible
@@ -37,12 +37,6 @@
   set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 "}}}
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 call plug#begin('~/.plugged')
   if has('nvim')
     Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -52,16 +46,16 @@ call plug#begin('~/.plugged')
     Plug 'roxma/vim-hug-neovim-rpc'
   endif
 
-  " if has('nvim')
-  "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " else
-  "   Plug 'Shougo/deoplete.nvim'
-  "   Plug 'roxma/nvim-yarp'
-  "   Plug 'roxma/vim-hug-neovim-rpc'
-  " endif
-  " " {{{
-  "   let g:deoplete#enable_at_startup = 1
-  " " }}}
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
+  " {{{
+    let g:deoplete#enable_at_startup = 1
+  " }}}
   Plug 'dense-analysis/ale'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-commentary'
@@ -86,11 +80,10 @@ call plug#begin('~/.plugged')
   " {{{
     nnoremap <silent> <leader><space> :Files<CR>
     nnoremap <silent> <leader>bb :Buffers<CR>
-    nnoremap <silent> <leader>A :Windows<CR>
-    nnoremap <silent> <leader>; :BLines<CR>
-    nnoremap <silent> <leader>o :BTags<CR>
-    nnoremap <silent> <leader>O :Tags<CR>
-    nnoremap <silent> <leader>? :History<CR>
+    nnoremap <silent> <leader>B :Windows<CR>
+    nnoremap <silent> <leader>sf :BLines<CR>
+    nnoremap <silent> <leader>sb :BTags<CR>
+    nnoremap <silent> <leader>sd :Tags<CR>
   "}}}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -98,6 +91,10 @@ call plug#begin('~/.plugged')
     let g:airline#extensions#ale#enabled = 1
     let g:airline#extensions#tabline#enabled = 1
     let g:airline_powerline_fonts = 1
+  "}}}
+  Plug 'preservim/nerdtree'
+  "{{{
+    map <leader>op :NERDTreeToggle<CR>
   "}}}
 call plug#end()
 
@@ -124,16 +121,16 @@ call plug#end()
 
 " Go
 "{{{
- let g:go_fmt_command = "goimports"
- let g:go_highlight_functions = 1
- let g:go_highlight_methods = 1
- let g:go_highlight_fields = 1
- let g:go_highlight_types = 1
- let g:go_highlight_operators = 1
- let g:go_highlight_build_constraints = 1
- let g:go_def_mapping_enabled = 0
- let g:go_fmt_fail_silently = 1
- let g:go_term_enabled = 1
+  let g:go_fmt_command = "goimports"
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_types = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_def_mapping_enabled = 0
+  let g:go_fmt_fail_silently = 1
+  let g:go_term_enabled = 1
 "}}}
 
 " Wayland clipboard
