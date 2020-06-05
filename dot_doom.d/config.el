@@ -54,3 +54,8 @@
 
 (use-package! wakatime-mode
   :hook (after-init . global-wakatime-mode))
+
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
