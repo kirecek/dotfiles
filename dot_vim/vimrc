@@ -96,6 +96,7 @@ call plug#begin('~/.plugged')
   "{{{
     map <leader>op :NERDTreeToggle<CR>
   "}}}
+  Plug 'sebdah/vim-delve'
 call plug#end()
 
 " Colors
