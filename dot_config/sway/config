@@ -1,222 +1,201 @@
-# i3wm configuration file
-# client.focused_inactive   #000000 #000000 #ffffff 
-
-# ------------------------------------------------------------- Variables
-
-# set "Super" as mod key
 set $mod Mod4
-
-# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# set workspace names as variables
-set $workspace1 "1: ➊ "
-set $workspace2 "2: ➋ "
-set $workspace3 "3: ➌ "
-set $workspace4 "4: ➍ "
-set $workspace5 "5: ➎ "
-set $workspace6 "6: ➏ "
-set $workspace7 "7: ➐ "
-set $workspace8 "8: ➑ "
-set $workspace9 "9: ➒ "
-set $workspaceA "10: ➓ "
+# ============================================================================ STARTUP
+#{{{
+  # exec wl-paste -p --watch clipman store
+#}}}
+
+# ============================================================================ WORKSPACES
+#{{{
+  set $ws_web "1: WWW "
+  set $ws_dev "2: DEV "
+  set $ws_term "3: TERM "
+  set $ws_chat "4: CHAT "
+  set $ws_doc "5: DOC "
+  set $ws_media "6: MEDIA "
+  set $ws_gfx "7: GFX "
+  set $ws_tmp "8: TMP "
+
+  assign [window_role="browser"] $ws_web
+  assign [class="^Emacs$"] $ws_dev
+  assign [class="^code-oss$"] $ws_dev
+#}}}
+
+# ============================================================================ BINDINGS
+#{{{
+  # cycle between recent workspaces
+  bindsym $mod+Tab workspace back_and_forth
+  # terminal
+  bindsym $mod+Return exec kitty
+  # kill focused window
+  bindsym $mod+Shift+q kill
+  # application launcher
+  # bindsym $mod+d exec bemenu-run -l 5 --fn Hack --nb "#020202" --nf "#444444" --sb "#888" --sf "#000"
+  bindsym $mod+d exec wofi --show drun
+  # bindsym $mod+d exec wofi -theme gruvbox-dark -show run
+  #  bindsym Mod1+Tab exec rofi -theme gruvbox-dark -show window
+  bindsym Mod1+Tab exec swaymsg workspace $(swaymsg -t get_workspaces | jq '.[] | .name' | wofi -dmenu)
+  # change focused window
+  bindsym $mod+h focus left
+  bindsym $mod+j focus down
+  bindsym $mod+k focus up
+  bindsym $mod+l focus right
+  # move focused window (vi-keys)
+  bindsym $mod+Shift+h move left
+  bindsym $mod+Shift+j move down
+  bindsym $mod+Shift+k move up
+  bindsym $mod+Shift+l move right
+  # split in horizontal orientation
+  bindsym $mod+semicolon split h
+  # split in vertical orientation
+  bindsym $mod+v split v
+  # enter fullscreen mode for the focused container
+  bindsym $mod+f fullscreen toggle
+  # change container layout (stacked, tabbed, toggle split)
+  bindsym $mod+s layout stacking
+  bindsym $mod+w layout tabbed
+  bindsym $mod+e layout toggle split
+  # toggle tiling / floating mode
+  bindsym $mod+Shift+space floating toggle
+  # change focus between tiling / floating windows
+  bindsym $mod+space focus mode_toggle
+  # focus the parent container
+  bindsym $mod+a focus parent
+  # switch to n workspace
+  bindsym $mod+1 workspace $ws_web
+  bindsym $mod+2 workspace $ws_dev
+  bindsym $mod+3 workspace $ws_term
+  bindsym $mod+4 workspace $ws_chat
+  bindsym $mod+5 workspace $ws_doc
+  bindsym $mod+6 workspace $ws_media
+  bindsym $mod+7 workspace $ws_gfx
+  bindsym $mod+8 workspace $ws_tmp
+  bindsym $mod+9 workspace $workspace9
+  bindsym $mod+0 workspace $workspaceA
+  # move window to workspace
+  bindsym $mod+Shift+1 move container to workspace $ws_web
+  bindsym $mod+Shift+2 move container to workspace $ws_dev
+  bindsym $mod+Shift+3 move container to workspace $ws_term
+  bindsym $mod+Shift+4 move container to workspace $ws_chat
+  bindsym $mod+Shift+5 move container to workspace $ws_doc
+  bindsym $mod+Shift+6 move container to workspace $ws_media
+  bindsym $mod+Shift+7 move container to workspace $ws_gfx
+  bindsym $mod+Shift+8 move container to workspace $ws_tmp
+  bindsym $mod+Shift+9 move container to workspace $workspace9
+  bindsym $mod+Shift+0 move container to workspace $workspaceA
+  # pulse adio controls
+  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+  bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+  # sreen brightness controls
+  bindsym XF86MonBrightnessUp exec sudo brightnessctl s +500
+  bindsym XF86MonBrightnessDown exec sudo brightnessctl s 500-
+  # media player controls
+  bindsym XF86AudioPlay exec playerctl play
+  bindsym XF86AudioPause exec playerctl pause
+  bindsym XF86AudioNext exec playerctl next
+  bindsym XF86AudioPrev exec playerctl previous
+  # move ws to left monitor
+  bindsym $mod+m move workspace to output left
+  # reload the configuration file
+  bindsym $mod+Shift+c reload
+  # restart swaybar
+  bindsym $mod+Shift+r restart
+  # lock screen
+  bindsym $mod+i exec swaylock
+  # exit sway
+  bindsym $mod+Shift+e exec "swaynag -t warning -m 'Wanna die?' -b 'Yes' 'swaymsg exit'"
+  # bindings in resize mode
+  bindsym $mod+r mode "resize"
+  mode "resize" {
+    # vi-keys for growing-shrinking
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+  }
+  # bindsym Control+Mod1+h exec clipman pick -t wofi
+#}}}
 
 
-# -------------------------------------------------------------  Bindings
-
-# cycle between recent workspaces
-bindsym $mod+Tab workspace back_and_forth
-
-# start a terminal
-bindsym $mod+Return exec kitty
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# application launcher
-# bindsym $mod+d exec dmenu_run -l 5 -fn Hack -nb "#020202" -nf "#444444" -sb "#888" -sf "#000"
-bindsym $mod+d exec rofi -theme gruvbox-dark -show run 
-bindsym Mod1+Tab exec rofi -theme gruvbox-dark -show window
-
-# change focused window
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# move focused window (vi-keys)
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# split in horizontal orientation
-bindsym $mod+semicolon split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating mode
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# switch to n workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspaceA
-
-# move window to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspaceA
-
-# pulse adio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# sreen brightness controls
-bindsym XF86MonBrightnessUp exec sudo brightnessctl s +500
-bindsym XF86MonBrightnessDown exec sudo brightnessctl s 500-
-
-# media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# move ws to left monitor
-bindsym $mod+m move workspace to output left
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart swaybar
-bindsym $mod+Shift+r restart
-
-# lock screen
-bindsym $mod+i exec swaylock
-
-# exit sway
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'Wanna die?' -b 'Yes' 'swaymsg exit'"
-
-# bindings in resize mode
-bindsym $mod+r mode "resize"
-
-mode "resize" {
-
-  # vi-keys for growing-shrinking
-  bindsym h resize shrink width 10 px or 10 ppt
-  bindsym j resize grow height 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym l resize grow width 10 px or 10 ppt
-
-  # back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym Control+Mod1+h exec CM_LAUNCHER=rofi clipmenu
-
-# ------------------------------------------------------------- Output and window specific workspaces
-
-# assign window to class to workspace
-assign [window_role="browser"] $workspace1
-
-# ------------------------------------------------------------- Gaps and borders
-
-smart_gaps on
-
-smart_borders on
-
-# set inner gap <px>
-gaps inner 10
-
-# set outer gap <px>
-gaps outer 6
-
-# window border width <px>
-default_border pixel 2
-
-# border eges none|vertical|horizontal|both
-hide_edge_borders smart
-
-# ------------------------------------------------------------- Scratchpad
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+# ============================================================================ BORDERS
+#{{{
+  smart_gaps on
+  smart_borders on
+  gaps inner 10
+  gaps outer 6
+  default_border pixel 2
+  hide_edge_borders smart
+#}}}
 
 
-# ------------------------------------------------------------- Colors and fonts
+# ============================================================================ SCRATCHPAD
+#{{{
+  bindsym $mod+Shift+minus move scratchpad
+  bindsym $mod+minus scratchpad show
+#}}}
 
-font pango: "Hack" 8
 
-# class                 border  bg      text    indic   child_border
-client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a
-client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
-client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
-client.urgent #cc241d #cc241d #fbdbb2 #282828 #282828
+# ============================================================================ THEME
+#{{{
+  font pango: "Hack" 8
 
-bar {
-  swaybar_command waybar
-}
+  # class                 border  bg      text    indic   child_border
+  client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a
+  client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
+  client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
+  client.urgent           #cc241d #cc241d #fbdbb2 #282828 #282828
 
-# ------------------------------------------------------------- Input settings
+  bar {
+    position bottom
+    swaybar_command waybar
+  }
+#}}}
 
-input type:touchpad {
-  tap enabled
-}
 
-# ------------------------------------------------------------- Output settings
+# ============================================================================ INPUT
+#{{{
+  input type:touchpad {
+    tap enabled
+  }
 
- output "*" bg ~/.wallpaper fill
+  input type:keyboard {
+   xkb_layout us
+   xkb_variant ,nodeadkeys
+   xkb_options caps:escape
+  }
+#}}}
 
-# ------------------------------------------------------------- Idle configuration
 
-exec swayidle -w \
-         timeout 300 'swaylock -f' \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f'
+# ============================================================================ OUTPUT
+#{{{
+  output "*" bg ~/.wallpaper fill
+#}}}
 
-# ------------------------------------------------------------- Custom config extensions
 
-include config.d/*
-    
-# ------------------------------------------------------------- Startup applications
+# ============================================================================ IDLE
+#{{{
+  exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f'
+#}}}
 
-exec --no-startup-id clipmenud
 
+# ============================================================================ INPUT
+#{{{
+  set $edp1 eDP-1
+  bindswitch --reload --locked lid:on output $edp1 disable
+  bindswitch --reload --locked lid:off output $edp1 enable
+#}}}
+
+
+# ============================================================================ CONFIG.D
+#{{{
+  include config.d/*
+#}}}

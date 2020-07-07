@@ -1,54 +1,76 @@
 ---
+- name: Common
+  tags:
+    - common
+  block:
+    - name: Install common packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - git
+        - vim
+        - neovim
+        - openssh
+        - gnupg
+        - keybase
+        - zsh
+        - curl
+        - ntp
+        - tmux
+        - dialog
+        - bat
+        - fd
+        - ripgrep
+        - fzf
+        - libnotify
+        - bluez
 
-- name: Install general packages
-  become: yes
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-  - git
-  - vim
-  - openssh
-  - gnupg
-  - keybase
-  - zsh
-  - curl
-  - ntp
-  - tmux
-  - dialog
-  - bat
-  - fd
-  - ripgrep
-  - fzf
+    - name: Install pluseaudio
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - pulseaudio
+        - pulseaudio-bluetooth
+        - pulseaudio-alsa
+      tags:
+        - pulseaudio
+        - audio
 
+    - name: Install tfenv
+      git:
+        repo: "https://github.com/tfutils/tfenv"
+        dest: "~/.tfenv"
 
-- name: Check if vim-plug exists
-  stat: 
-    path: "~/.vim/autoload/plug.vim"
-  register: vim_plug
+    - name: Install plugin manager for tmux
+      git:
+        repo: "https://github.com/tmux-plugins/tpm"
+        dest: "~/.tmux/plugins/tpm"
 
+    - name: Install icons
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - adwaita-icon-theme
 
-- name: Create autoload directory for vim
-  file:
-    path: "~/.vim/autoload"
-    state: directory
-  when: vim_plug.stat.exists == false
-
-
-- name: Download vim plugin manager
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: "~/.vim/autoload/plug.vim"
-  when: vim_plug.stat.exists == false
-
-
-- name: Install tfenv
-  git:
-    repo: "https://github.com/tfutils/tfenv"
-    dest: "~/.tfenv"
-
-
-- name: Install plugin manager for tmux
-  git:
-    repo: "https://github.com/tmux-plugins/tpm"
-    dest: "~/.tmux/plugins/tpm"
+    - name: Install fonts
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - ttf-hack
+        - ttf-fira-code
+        - ttf-fira-mono
+        - ttf-font-awesome
+        - ttf-inconsolata
+        - ttf-opensans
+        - ttf-dejavu
+        - ttf-droid
+        - ttf-ubuntu-font-family
+        - awesome-terminal-fonts
