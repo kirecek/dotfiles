@@ -142,7 +142,7 @@ floating_modifier $mod
 
 # ============================================================================ THEME
 #{{{
-  font pango: "Hack" 8
+  font pango: "Hack" 12
 
   # class                 border  bg      text    indic   child_border
   client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a

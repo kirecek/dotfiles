@@ -109,5 +109,21 @@
 	},
 	"tray": {
 		"icon-size": 20
-	}
+	},
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1: WWW ": "  ",
+            "2: DEV ": "  ",
+            "3: TERM ": "  ",
+            "4: CHAT ": "  ",
+            "5: DOC ": "  ",
+            "6: MEDIA ": "  ",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
 }

@@ -1,11 +1,12 @@
 * {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: monospace;
 }
 
 window#waybar {
 	background: #282828;
 	color: #fdf6e3;
+    padding-bottom: 3px;
 }
 
 #custom-right-arrow-dark,
@@ -47,7 +48,6 @@ window#waybar {
 #workspaces button:hover {
 	background: #1a1a1a;
 	border: #1a1a1a;
-	padding: 0 3px;
 }
 
 #clock,
