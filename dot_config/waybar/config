@@ -121,9 +121,9 @@
             "4: CHAT ": "  ",
             "5: DOC ": "  ",
             "6: MEDIA ": "  ",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "urgent": "  ",
+            "focused": "  ",
+            "default": "  "
         }
     },
 }
