@@ -114,6 +114,12 @@
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
+        "persistent_workspaces": {
+            "1: WWW ": [],
+            "2: DEV ": [], 
+            "3: TERM ": [],
+            "4: CHAT ": []
+        },
         "format-icons": {
             "1: WWW ": "  ",
             "2: DEV ": "  ",
@@ -125,5 +131,5 @@
             "focused": "  ",
             "default": "  "
         }
-    },
+    }
 }

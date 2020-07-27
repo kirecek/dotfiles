@@ -17,9 +17,13 @@ floating_modifier $mod
   set $ws_gfx "7: GFX "
   set $ws_tmp "8: TMP "
 
-  assign [window_role="browser"] $ws_web
-  assign [class="^Emacs$"] $ws_dev
-  assign [class="^code-oss$"] $ws_dev
+
+  assign [class="browser"] $ws_web
+  assign [app_id="firefox"] $ws_web
+  assign [app_id="kitty"] $ws_term
+  assign [class="Emacs"] $ws_dev
+  assign [class="code-oss"] $ws_dev
+  assign [class="Slack"] $ws_chat
 #}}}
 
 # ============================================================================ BINDINGS
@@ -142,7 +146,7 @@ floating_modifier $mod
 
 # ============================================================================ THEME
 #{{{
-  font pango: "Hack" 12
+  font pango: "Hack" 10
 
   # class                 border  bg      text    indic   child_border
   client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a
