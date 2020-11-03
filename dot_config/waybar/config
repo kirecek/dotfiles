@@ -121,12 +121,12 @@
             "4: CHAT ": []
         },
         "format-icons": {
-            "1: WWW ": "  ",
-            "2: DEV ": "  ",
-            "3: TERM ": "  ",
-            "4: CHAT ": "  ",
-            "5: DOC ": "  ",
-            "6: MEDIA ": "  ",
+            "1: WWW ": " www ",
+            "2: DEV ": " dev ",
+            "3: TERM ": " term ",
+            "4: CHAT ": " chat ",
+            "5: DOC ": " doc ",
+            "6: MEDIA ": " media ",
             "urgent": "  ",
             "focused": "  ",
             "default": "  "

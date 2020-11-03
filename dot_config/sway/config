@@ -3,7 +3,7 @@ floating_modifier $mod
 
 # ============================================================================ STARTUP
 #{{{
-  # exec wl-paste -p --watch clipman store
+  exec wl-paste -p --watch clipman store
 #}}}
 
 # ============================================================================ WORKSPACES
@@ -12,11 +12,9 @@ floating_modifier $mod
   set $ws_dev "2: DEV "
   set $ws_term "3: TERM "
   set $ws_chat "4: CHAT "
-  set $ws_doc "5: DOC "
-  set $ws_media "6: MEDIA "
-  set $ws_gfx "7: GFX "
-  set $ws_tmp "8: TMP "
-
+  set $ws_media "5: MEDIA "
+  set $ws_gfx "6: GFX "
+  set $ws_tmp "7: TMP "
 
   assign [class="browser"] $ws_web
   assign [app_id="firefox"] $ws_web
