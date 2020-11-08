@@ -8,20 +8,22 @@ floating_modifier $mod
 
 # ============================================================================ WORKSPACES
 #{{{
-  set $ws_web "1: WWW "
-  set $ws_dev "2: DEV "
-  set $ws_term "3: TERM "
-  set $ws_chat "4: CHAT "
-  set $ws_media "5: MEDIA "
-  set $ws_gfx "6: GFX "
-  set $ws_tmp "7: TMP "
+  set $ws_1 "1: WWW "
+  set $ws_2 "2: TERM "
+  set $ws_3 "3: DEV "
+  set $ws_4 "4: CHAT "
+  set $ws_5 "5: GFX "
+  set $ws_6 "6: MEDIA "
+  set $ws_7 "7: TMP "
+  set $ws_8 "8: TMP "
+  set $ws_9 "9: TMP "
+  set $ws_0 "A: TMP "
 
-  assign [class="browser"] $ws_web
-  assign [app_id="firefox"] $ws_web
-  assign [app_id="kitty"] $ws_term
-  assign [class="Emacs"] $ws_dev
-  assign [class="code-oss"] $ws_dev
-  assign [class="Slack"] $ws_chat
+  assign [class="browser"] $ws_1
+  assign [app_id="firefox"] $ws_1
+  assign [class="Emacs"] $ws_3
+  assign [class="code-oss"] $ws_3
+  assign [class="Slack"] $ws_4
 #}}}
 
 # ============================================================================ BINDINGS
@@ -65,27 +67,27 @@ floating_modifier $mod
   # focus the parent container
   bindsym $mod+a focus parent
   # switch to n workspace
-  bindsym $mod+1 workspace $ws_web
-  bindsym $mod+2 workspace $ws_dev
-  bindsym $mod+3 workspace $ws_term
-  bindsym $mod+4 workspace $ws_chat
-  bindsym $mod+5 workspace $ws_doc
-  bindsym $mod+6 workspace $ws_media
-  bindsym $mod+7 workspace $ws_gfx
-  bindsym $mod+8 workspace $ws_tmp
-  bindsym $mod+9 workspace $workspace9
-  bindsym $mod+0 workspace $workspaceA
+  bindsym $mod+1 workspace $ws_1
+  bindsym $mod+2 workspace $ws_2
+  bindsym $mod+3 workspace $ws_3
+  bindsym $mod+4 workspace $ws_4
+  bindsym $mod+5 workspace $ws_5
+  bindsym $mod+6 workspace $ws_6
+  bindsym $mod+7 workspace $ws_7
+  bindsym $mod+8 workspace $ws_8
+  bindsym $mod+9 workspace $ws_9
+  bindsym $mod+0 workspace $ws_0
   # move window to workspace
-  bindsym $mod+Shift+1 move container to workspace $ws_web
-  bindsym $mod+Shift+2 move container to workspace $ws_dev
-  bindsym $mod+Shift+3 move container to workspace $ws_term
-  bindsym $mod+Shift+4 move container to workspace $ws_chat
-  bindsym $mod+Shift+5 move container to workspace $ws_doc
-  bindsym $mod+Shift+6 move container to workspace $ws_media
-  bindsym $mod+Shift+7 move container to workspace $ws_gfx
-  bindsym $mod+Shift+8 move container to workspace $ws_tmp
-  bindsym $mod+Shift+9 move container to workspace $workspace9
-  bindsym $mod+Shift+0 move container to workspace $workspaceA
+  bindsym $mod+Shift+1 move container to workspace $ws_1
+  bindsym $mod+Shift+2 move container to workspace $ws_2
+  bindsym $mod+Shift+3 move container to workspace $ws_3
+  bindsym $mod+Shift+4 move container to workspace $ws_4
+  bindsym $mod+Shift+5 move container to workspace $ws_5
+  bindsym $mod+Shift+6 move container to workspace $ws_6
+  bindsym $mod+Shift+7 move container to workspace $ws_7
+  bindsym $mod+Shift+8 move container to workspace $ws_8
+  bindsym $mod+Shift+9 move container to workspace $ws_9
+  bindsym $mod+Shift+0 move container to workspace $ws_0
   # pulse adio controls
   bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
   bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -120,7 +122,7 @@ floating_modifier $mod
     bindsym Return mode "default"
     bindsym Escape mode "default"
   }
-  # bindsym Control+Mod1+h exec clipman pick -t wofi
+  bindsym Control+Mod1+h exec clipman pick -t wofi
 #}}}
 
 
@@ -146,11 +148,25 @@ floating_modifier $mod
 #{{{
   font pango: "Hack" 10
 
-  # class                 border  bg      text    indic   child_border
-  client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a
-  client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
-  client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
-  client.urgent           #cc241d #cc241d #fbdbb2 #282828 #282828
+  set $bg 	#007F6D
+  set $bg-inactive   #323232
+  set $bg-urgent     #000000
+  set $text          #eeeeec
+  set $text-inactive #babdb6
+
+  set $bar           #323232
+  set $statusline    #e0e0e0
+
+  client.focused          $bg           $bg          $text          $bg  $bg
+  client.unfocused        $bg-inactive  $bg-inactive $text-inactive $bar $bar
+  client.focused_inactive $bg-inactive  $bg-inactive $text-inactive $bar $bar
+  client.urgent           $bg-urgent    $bg-urgent   $text          $bar $bar
+
+  # # class                 border  bg      text    indic   child_border
+  # client.focused          #1a1a1a #1a1a1a #83a598 #424242 #1a1a1a
+  # client.focused_inactive #282828 #282828 #fbdbb2 #282828 #282828
+  # client.unfocused        #282828 #282828 #7c6f64 #282828 #282828
+  # client.urgent           #cc241d #cc241d #fbdbb2 #282828 #282828
 
   bar {
     position bottom
@@ -175,7 +191,8 @@ floating_modifier $mod
 
 # ============================================================================ OUTPUT
 #{{{
-  output "*" bg ~/.wallpaper fill
+  # output "*" bg ~/.wallpaper fill
+  output * bg #2D2D2D solid_color
 #}}}
 
 
