@@ -123,6 +123,7 @@ floating_modifier $mod
     bindsym Escape mode "default"
   }
   bindsym Control+Mod1+h exec clipman pick -t wofi
+  bindsym $mod+p exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%F-%T).png
 #}}}
 
 
