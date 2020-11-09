@@ -18,6 +18,11 @@
         - mako
         - wofi
         - bemenu
+        - grim
+        - slurp
+        - light
+        - pulseaudio
+        - pavucontrol
 
     - name: Create sway/conf.d directory
       file:

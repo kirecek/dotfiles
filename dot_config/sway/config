@@ -88,18 +88,6 @@ floating_modifier $mod
   bindsym $mod+Shift+8 move container to workspace $ws_8
   bindsym $mod+Shift+9 move container to workspace $ws_9
   bindsym $mod+Shift+0 move container to workspace $ws_0
-  # pulse adio controls
-  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-  bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-  # sreen brightness controls
-  bindsym XF86MonBrightnessUp exec sudo brightnessctl s +500
-  bindsym XF86MonBrightnessDown exec sudo brightnessctl s 500-
-  # media player controls
-  bindsym XF86AudioPlay exec playerctl play
-  bindsym XF86AudioPause exec playerctl pause
-  bindsym XF86AudioNext exec playerctl next
-  bindsym XF86AudioPrev exec playerctl previous
   # move ws to left monitor
   bindsym $mod+m move workspace to output left
   # reload the configuration file
@@ -110,8 +98,19 @@ floating_modifier $mod
   bindsym $mod+i exec swaylock
   # exit sway
   bindsym $mod+Shift+e exec "swaynag -t warning -m 'Wanna die?' -b 'Yes' 'swaymsg exit'"
+  # Multimedia
+  bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
+  bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
+  bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+  bindsym --locked XF86AudioPlay exec playerctl play-pause
+  bindsym --locked XF86AudioNext exec playerctl next
+  bindsym --locked XF86AudioPrev exec playerctl previous
+  # Brightness controls
+  bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
+  bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
   # bindings in resize mode
   bindsym $mod+r mode "resize"
+
   mode "resize" {
     # vi-keys for growing-shrinking
     bindsym h resize shrink width 10 px or 10 ppt
