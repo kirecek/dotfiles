@@ -66,6 +66,9 @@ call plug#begin('~/.plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'sheerun/vim-polyglot'
+  "{{{
+    let g:vim_markdown_conceal = 0
+  "}}}
   Plug 'morhetz/gruvbox'
   Plug 'Yggdroot/indentLine'
   "{{{

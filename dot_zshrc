@@ -16,7 +16,7 @@ export ZSH_WAKATIME_PROJECT_DETECTION=true
 
 # ------------------------------- docker settings
 
-DOCKER_CLI_EXPERIMENTAL=enabled
+export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # ------------------------------- oh-my-zsh settings
 
@@ -156,7 +156,7 @@ fi
 
 # -------------------------------- update path
 
-export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.tfenv/bin:$PATH"
+export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.tfenv/bin:$HOME/.istioctlenv/bin:$PATH"
 
 # -------------------------------- invoke gpg-agent
 
