@@ -65,6 +65,12 @@ call plug#begin('~/.plugged')
   "}}}
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  "{{{
+    let g:go_fmt_autosave = 1
+    let g:go_fmt_command = "goimports"
+  "}}}
   Plug 'sheerun/vim-polyglot'
   "{{{
     let g:vim_markdown_conceal = 0
