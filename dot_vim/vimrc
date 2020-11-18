@@ -86,6 +86,7 @@ call plug#begin('~/.plugged')
   Plug 'wakatime/vim-wakatime'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'SirVer/ultisnips'
   " {{{
     nnoremap <silent> <leader><space> :Files<CR>
     nnoremap <silent> <leader>bb :Buffers<CR>
