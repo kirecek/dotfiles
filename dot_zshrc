@@ -109,9 +109,6 @@ alias k=kubectl
 alias tf=terraform
 alias dkr=docker
 
-# alternatives for linux built-ins
-alias cat=bat
-
 # check for alias substitution in watch
 alias watch='watch '
 
@@ -126,6 +123,18 @@ function tses() {
     fi
     tmux a -t $1 || tmux new -s $1
 }
+
+# alternatives for linux built-ins
+#
+if [ -x "$(command -v bat)" ]; then
+  alias _cat=cat
+  alias cat=bat
+fi
+
+if [ -x "$(command -v exa)" ]; then
+  alias _ls=ls
+  alias ls=exa
+fi
 
 # ------------------------------- modify history behavior
 

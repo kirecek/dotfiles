@@ -20,12 +20,23 @@
         - ntp
         - tmux
         - dialog
-        - bat
-        - fd
-        - ripgrep
         - fzf
         - libnotify
         - bluez
+        - inetutils
+        - net-tools
+        - traceroute
+
+    - name: Install alternative packages for default tools
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - bat
+        - fd
+        - ripgrep
+        - exa
 
     - name: Install pluseaudio
       become: yes
