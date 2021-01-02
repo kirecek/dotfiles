@@ -1,8 +1,8 @@
 ---
-- name: Wayland
+- name: Wayland common
   tags:
-    - wayland
     - sway
+    - wayland
     - never
   block:
     - name: Install common wayland packages
@@ -11,8 +11,31 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - wayland
-        - wayland-protocols
-        - wlroots
-        - wl-clipboard
-        - xorg-server-xwayland
+        - mako
+        - wofi
+        - bemenu
+        - grim
+        - slurp
+        - light
+
+- name: Sway
+  tags:
+    - sway
+    - never
+  block:
+    - name: Install sway and related packages
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - sway
+        - swaybg
+        - swayidle
+        - swaylock
+        - waybar
+
+    - name: Create sway/conf.d directory
+      file:
+        path: "~/.config/sway/config.d"
+        state: directory

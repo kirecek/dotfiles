@@ -12,3 +12,9 @@
       git:
         repo: "https://github.com/kirecek/istioctlenv"
         dest: "~/.istioctlenv"
+
+    - name: Install plugin manager for tmux
+      git:
+        repo: "https://github.com/tmux-plugins/tpm"
+        dest: "~/.tmux/plugins/tpm"
+
