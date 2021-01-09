@@ -27,6 +27,7 @@
         - inetutils
         - net-tools
         - traceroute
+        - wireless_tools
 
     - name: Install alternative packages for default tools
       become: yes
