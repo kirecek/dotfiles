@@ -1,0 +1,14 @@
+---
+- name: Initial (must have) applications
+  tags:
+    - apps
+  block:
+    - name: Install initial GUI apps
+      become: yes
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - alacritty
+        - kitty
+        - firefox
