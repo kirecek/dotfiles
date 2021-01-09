@@ -11,6 +11,8 @@ exec xsetroot -solid "#202020" &
 
 exec dunst &
 
+exec clipmenud &
+
 setxkbmap -option compose:ralt
 
 setxkbmap -option ctrl:nocaps
