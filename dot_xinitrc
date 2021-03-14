@@ -7,6 +7,23 @@ fi
 
 export CM_LAUNCHER=rofi
 
+export PRIMARY_DISPLAY="$(xrandr | awk '/ primary/{print $1}')"
+
+if [ -x "$(command -v xidlehook)" ]; then
+    exec xidlehook \
+      --not-when-fullscreen \
+      --not-when-audio \
+      --timer 60 \
+        'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \
+        'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
+      --timer 60 \
+        'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; slock' \
+        '' \
+      --timer 3600 \
+        'systemctl suspend' \
+        '' &
+fi
+
 exec xsetroot -solid "#202020" &
 
 exec dunst &

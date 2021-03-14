@@ -165,7 +165,7 @@ fi
 
 # -------------------------------- update path
 
-export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.tfenv/bin:$HOME/.istioctlenv/bin:$PATH"
+export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.tfenv/bin:$HOME/.istioctlenv/bin:$HOME/.gloo-mesh/bin:$HOME/.krew/bin:$HOME/.kubebuilder/bin:$PATH"
 
 # -------------------------------- invoke gpg-agent
 
@@ -206,3 +206,6 @@ fi
 
 # ext for renaming files
 autoload -U zmv
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault
