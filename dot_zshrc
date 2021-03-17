@@ -101,8 +101,13 @@ alias mkdir='mkdir -pv'
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
 
 # shortcuts for copy/paste commands
-alias xc="wl-copy"
-alias xp="wl-paste"
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+  alias xc="wl-copy"
+  alias xp="wl-paste"
+else
+  alias xc="xclip -i"
+  alias xp="xclip -o"
+fi
 
 # lazy application shortcuts
 alias k=kubectl
@@ -208,4 +213,6 @@ fi
 autoload -U zmv
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/vault vault
+
+[ -x "$(command -v vault)" ] \
+   && complete -o nospace -C /usr/bin/vault vault
