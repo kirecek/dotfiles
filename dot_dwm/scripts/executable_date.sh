@@ -1,4 +1,4 @@
 #!/bin/env bash
 
-dt="$(date +" %B %d  %H:%M")"
+dt="$(date +"date[%Y/%m/%d %H:%M]")"
 echo -ne "$dt"
