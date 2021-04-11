@@ -12,7 +12,7 @@
   " set encoding
   set encoding=utf-8
   " set line numbering relative to cursor location
-  set relativenumber
+  set number relativenumber
   " highlight current line
   set cursorline
   " change cusor type to horizontal line
