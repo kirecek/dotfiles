@@ -1,0 +1,229 @@
+# ------------------------------- general settings
+
+# set XDG location
+export XDG_HOME_CONFIG=$HOME/.config
+
+# change default editor
+if [ -x "$(command -v nvim)" ]; then
+    export EDITOR=nvim
+    alias v=nvim
+elif [ -x "$(command -v vim)" ]; then
+    export EDITOR=vim
+    alias v=vim
+else
+    export EDITOR=vi
+    alias v=vi
+fi
+
+# ------------------------------- oh-my-zsh settings
+
+OH_MY_ZSH_DEST="$HOME/.oh-my-zsh"
+
+if [ ! -d "$OH_MY_ZSH_DEST" ]; then
+    printf "Install oh-my-zsh? [y/N]: "
+    if read -q; then
+        echo; git clone --depth=1 --branch master https://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH_DEST"
+    fi
+fi
+
+# path to oh-my-zsh installation
+export ZSH="$OH_MY_ZSH_DEST"
+
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+
+  # change location for custom plugins and themes
+  export ZSH_CUSTOM="$XDG_HOME_CONFIG/oh-my-zsh"
+
+  # set theme for PS1
+  ZSH_THEME="robbyrussell"
+  
+  # enabled plugins
+  plugins=(
+    git
+    vi-mode
+    history-substring-search  
+    jsontools  
+    sudo  
+    systemd  
+    web-search  
+    kubectl
+    fzf
+    z
+  )
+
+  source $ZSH/oh-my-zsh.sh
+fi
+
+# ------------------------------- python settings
+
+# user pyenv to manage python versions
+if [ -x "$(command -v pyenv)" ]; then
+    eval "$(pyenv init -)"
+    # eval "$(pyenv virtualenv-init -)"
+fi
+
+# ------------------------------ third-party scripts
+
+# 'fuck' command
+[ -x "$(command -v thefuck)" ] \
+    && eval $(thefuck --alias)
+
+# fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ------------------------------- custom aliases and functions
+
+alias ]=xdg-open
+
+# start calculator with math support
+alias bc='bc -l'
+
+# create parent dirs on demand
+alias mkdir='mkdir -pv'
+
+# shortcut to download mp3 from youtube
+alias ytmp3="youtube-dl --extract-audio --audio-format mp3"
+
+# shortcuts for copy/paste commands
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+  alias xc="wl-copy"
+  alias xp="wl-paste"
+else
+  alias xc="xclip -i"
+  alias xp="xclip -o"
+fi
+
+# lazy application shortcuts
+alias k=kubectl
+alias tf=terraform
+
+# check for alias substitution in watch
+alias watch='watch '
+
+# decision maker
+alias coinflip="python3 -c \"print(__import__('random').choice(['Head', 'Tail']))\""
+
+function randpick() {
+  echo $1 | python3 -c 'i = input(); print(__import__("random").choice(i.split(",")))'
+
+}
+
+# create a new tmux session with the given name. If session already exists, attach to it
+function tses() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: tses <session-name>"
+        return 1
+    fi
+    tmux a -t $1 || tmux new -s $1
+}
+
+function wall() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: wall <path>"
+        return 1
+    fi
+    hyprctl hyprpaper preload "$1"
+    hyprctl hyprpaper wallpaper ",$1"
+}
+
+# alternatives for linux built-ins
+#
+if [ -x "$(command -v bat)" ]; then
+  alias _cat=cat
+  alias cat=bat
+fi
+
+if [ -x "$(command -v exa)" ]; then
+  alias _ls=ls
+  alias ls=exa
+fi
+
+# ------------------------------- modify history behavior
+
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+
+unsetopt HIST_VERIFY
+
+# ------------------------------- setup google cloud sdk
+
+# location where gcloud sdk is installed
+GCLOUD_SDK_ROOT="${HOME}/google-cloud-sdk"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${GCLOUD_SDK_ROOT}/path.zsh.inc" ]; then
+    source "${GCLOUD_SDK_ROOT}/path.zsh.inc"
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${GCLOUD_SDK_ROOT}/completion.zsh.inc" ]; then
+    source "${GCLOUD_SDK_ROOT}/completion.zsh.inc"
+fi
+
+# -------------------------------- update path
+
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.tfenv/bin:$HOME/.istioctlenv/bin:$HOME/.gloo-mesh/bin:$HOME/.krew/bin:$HOME/.kubebuilder/bin:$HOME/vscode/bin:/opt/homebrew/bin:$PATH"
+
+# ------------------------------- golang
+
+if [ -x "$(command -v go)" ]; then
+	export GOPATH=$(go env GOPATH)
+    export PATH="$GOPATH/bin:$PATH"
+fi
+
+# -------------------------------- gpg-agent
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# -------------------------------- use gpg-agent instead of ssh-agent
+
+unset SSH_AGENT_PID
+export GPG_TTY=$(tty)
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
+
+# ------------------------------- zsh plugin management
+
+if [[ ! -d ~/.zplug ]];then
+    git clone https://github.com/b4b4r07/zplug ~/.zplug
+fi
+
+source ~/.zplug/init.zsh
+
+zplug "paulirish/git-open", from:github
+zplug "wbingli/zsh-wakatime", from:github
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
+
+
+zplug load
+
+if ! zplug check --verbose; then
+    printf "Install zplug plugins? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# ------------------------------- zsh extensions
+
+
+autoload -U zmv
+
+autoload -U +X bashcompinit && bashcompinit
+
+[ -x "$(command -v vault)" ] \
+   && complete -o nospace -C /usr/bin/vault vault
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
