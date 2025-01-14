@@ -5,4 +5,12 @@ sudo pacman -S \
     swaylock \
     pamixer \
     lxappearance \
-    alacritty
+    alacritty \
+    fd \
+    python-pipx \
+    tree \
+    net-tools \
+    bind \
+    iputils \
+    ripgrep \
+    tmux
