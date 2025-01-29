@@ -89,8 +89,8 @@
         "scroll-step": 1
     },
     "custom/logo": {
-        "format": " 💀",
-        "tooltip": false,
+        "format": "  ",
+        "tooltip": false
     },
     "battery": {
         "format": "{capacity}% {icon}",
