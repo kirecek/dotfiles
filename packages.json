@@ -15,6 +15,7 @@
     ],
     "gui": [
         "hyprland",
+        "hyprlock",
         "waybar",
         "swayidle",
         "pamixer",
