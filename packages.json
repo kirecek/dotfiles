@@ -1,0 +1,25 @@
+{
+    "system": [
+        "fd",
+        "net-tools",
+        "bind",
+        "iputils",
+        "ripgrep",
+        "tmux",
+        "neovim"
+    ],
+    "fonts": [
+        "ttf-font-awesome",
+        "otf-font-awesome",
+        "nerd-fonts"
+    ],
+    "gui": [
+        "hyprland",
+        "waybar",
+        "swayidle",
+        "pamixer",
+        "lxappearance",
+        "alacritty",
+        "pamixer"
+    ]
+}
