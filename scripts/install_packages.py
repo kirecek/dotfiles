@@ -46,10 +46,11 @@ def main():
 
     parser = argparse.ArgumentParser(description="Install packages based on category.")
     parser.add_argument(
-        "-c", "--category", 
+        "-c",
+        "--category",
         action="append",
         choices=packages.keys(),
-        help="Category of packages to install (system, fonts, gui)"
+        help="Category of packages to install (system, fonts, gui)",
     )
     args = parser.parse_args()
 
@@ -62,7 +63,8 @@ def main():
             print(f"\nChecking {category} packages:")
             check_and_install(pkgs)
 
-    print('\nDone')
+    print("\nDone")
+
 
 if __name__ == "__main__":
     main()
