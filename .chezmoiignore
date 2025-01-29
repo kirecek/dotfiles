@@ -1,2 +1,3 @@
 README.md
 scripts
+dot_config/hypr/overrides/*.conf
