@@ -108,6 +108,9 @@ function randpick() {
 
 }
 
+alias start_docker="sudo systemctl start docker"
+alias start_bt="sudo systemctl start bluetooth.service"
+
 # create a new tmux session with the given name. If session already exists, attach to it
 function tses() {
     if [ "$#" -ne 1 ]; then
