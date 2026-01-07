@@ -39,9 +39,10 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug('nvim-treesitter/nvim-treesitter', {
-    ['do'] = function()
-        vim.fn[':TSUpdate']()
-    end
+    ['tag'] = 'v0.10.0'
+    -- ['do'] = function()
+    --     vim.fn[':TSUpdate']()
+    -- end
 })
 
 Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.6' })
