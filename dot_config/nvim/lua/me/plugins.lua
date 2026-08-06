@@ -29,7 +29,7 @@ Plug('nvim-treesitter/nvim-treesitter', {
     -- end
 })
 
-Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.6' })
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
 
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'
